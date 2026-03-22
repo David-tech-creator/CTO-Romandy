@@ -34,25 +34,34 @@ export default async function EventPage({
   let photos: { id: string; cloudinary_url: string; caption: string | null }[] = []
 
   if (supabaseUrl && supabaseKey) {
-    const supabase = createClient(supabaseUrl, supabaseKey)
-    const [registrationsRes, photosRes] = await Promise.all([
-      supabase
-        .from('event_registrations')
-        .select('id, first_name, last_name, company', { count: 'exact' })
-        .eq('event_name', event.title),
-      supabase
-        .from('event_photos')
-        .select('id, cloudinary_url, caption')
-        .eq('event_slug', slug)
-        .order('uploaded_at', { ascending: true }),
-    ])
-    registrations = registrationsRes.data ?? []
-    registrationCount = registrationsRes.count ?? 0
-    photos = photosRes.data ?? []
+    try {
+      const supabase = createClient(supabaseUrl, supabaseKey)
+      const [registrationsRes, photosRes] = await Promise.all([
+        supabase
+          .from('event_registrations')
+          .select('id, first_name, last_name, company', { count: 'exact' })
+          .eq('event_name', event.title),
+        supabase
+          .from('event_photos')
+          .select('id, cloudinary_url, caption')
+          .eq('event_slug', slug)
+          .order('uploaded_at', { ascending: true }),
+      ])
+      registrations = registrationsRes.data ?? []
+      registrationCount = registrationsRes.count ?? 0
+      photos = photosRes.data ?? []
+    } catch {
+      // Supabase unavailable — page still renders with empty data
+    }
   }
 
-  const { sessionClaims } = await auth()
-  const isAdmin = (sessionClaims?.metadata as { role?: string })?.role === 'admin'
+  let isAdmin = false
+  try {
+    const { sessionClaims } = await auth()
+    isAdmin = (sessionClaims?.metadata as { role?: string })?.role === 'admin'
+  } catch {
+    // Auth unavailable — default to non-admin
+  }
 
   const title = locale === 'fr' ? event.titleFr : event.title
   const description = locale === 'fr' ? event.descriptionFr : event.description
