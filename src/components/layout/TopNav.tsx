@@ -3,6 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { UserButton, Show } from '@clerk/nextjs'
 import { ExternalLink } from 'lucide-react'
 import { BrandLockup } from '@/components/BrandLockup'
 
@@ -54,13 +55,19 @@ export function TopNav() {
             {t('language')}
           </button>
 
-          <Link
-            href={`/${locale}/join`}
-            className="text-sm font-semibold px-4 py-2 rounded-md transition-opacity hover:opacity-90 whitespace-nowrap"
-            style={{ backgroundColor: ORANGE, color: 'white' }}
-          >
-            {t('joinCommunity')}
-          </Link>
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
+
+          <Show when="signed-out">
+            <Link
+              href={`/${locale}/join`}
+              className="text-sm font-semibold px-4 py-2 rounded-md transition-opacity hover:opacity-90 whitespace-nowrap"
+              style={{ backgroundColor: ORANGE, color: 'white' }}
+            >
+              {t('joinCommunity')}
+            </Link>
+          </Show>
         </div>
       </div>
     </header>
