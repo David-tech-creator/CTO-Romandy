@@ -1,10 +1,15 @@
-import createMiddleware from 'next-intl/middleware';
+import { clerkMiddleware } from '@clerk/nextjs/server'
+import createIntlMiddleware from 'next-intl/middleware'
 
-export default createMiddleware({
+const handleI18nRouting = createIntlMiddleware({
   locales: ['en', 'fr'],
   defaultLocale: 'en',
-});
+})
+
+export default clerkMiddleware((auth, req) => {
+  return handleI18nRouting(req)
+})
 
 export const config = {
-  matcher: ['/', '/(fr|en)', '/(fr|en)/:path*'],
-}; 
+  matcher: ['/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)'],
+}

@@ -3,6 +3,7 @@
     "about": "À propos",
     "events": "Événements",
     "join": "Rejoindre Meetup",
+    "joinCommunity": "Rejoindre la Communauté",
     "language": "English"
   },
   "hero": {
@@ -50,8 +51,31 @@
   },
   "events": {
     "title": "Événements Récents",
+    "subtitle": "Découvrez tous les événements passés et à venir du Romandy CTO.",
     "attendees": "participants",
-    "viewAll": "Voir tous les événements sur Meetup"
+    "viewAll": "Voir tous les événements sur Meetup",
+    "viewEvent": "Voir l'événement",
+    "past": "Événements Passés"
+  },
+  "join": {
+    "title": "Rejoindre Notre Communauté",
+    "subtitle": "Restez connecté avec 510+ CTOs et leaders technologiques en Romandie. Recevez les invitations aux événements, les actualités et les insights exclusifs.",
+    "benefit1": "Soyez le premier informé des prochains événements et réservez votre place avant qu'ils ne soient complets.",
+    "benefit2": "Recevez des insights, des récapitulatifs et des ressources de chaque événement.",
+    "benefit3": "Connectez-vous avec des CTOs et leaders technologiques de toute la Romandie, Suisse.",
+    "formTitle": "S'inscrire",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "company": "Entreprise",
+    "optional": "optionnel",
+    "submit": "Rejoindre la Communauté",
+    "submitting": "Inscription…",
+    "success": "Bienvenue dans la communauté !",
+    "successSub": "Vous recevrez les invitations aux événements et les actualités de la communauté à votre adresse email.",
+    "alreadyMember": "Vous êtes déjà membre de notre communauté.",
+    "error": "Une erreur s'est produite. Veuillez réessayer.",
+    "privacy": "Pas de spam. Désabonnement à tout moment."
   },
   "register": {
     "back": "Retour à l'accueil",

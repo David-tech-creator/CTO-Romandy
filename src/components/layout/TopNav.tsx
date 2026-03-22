@@ -4,8 +4,11 @@ import { useTranslations, useLocale } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import { UserButton, SignInButton, Show } from '@clerk/nextjs'
+import { ExternalLink } from 'lucide-react'
 
 const MEETUP_URL = 'https://www.meetup.com/romandy-cto-meetup-group/'
+const ORANGE = '#C8834A'
 
 export function TopNav() {
   const t = useTranslations('nav')
@@ -23,9 +26,9 @@ export function TopNav() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="Romandy CTO" width={32} height={26} />
+          <Image src="/logo.png" alt="Romandy CTO" width={32} height={21} />
           <span className="font-bold text-white tracking-wide">
-            ROMANDY <span style={{ color: '#C8834A' }}>CTO</span>
+            ROMANDY <span style={{ color: ORANGE }}>CTO</span>
           </span>
         </Link>
 
@@ -37,6 +40,14 @@ export function TopNav() {
           <a href="#events" className="text-sm text-white/60 hover:text-white transition-colors">
             {t('events')}
           </a>
+          <a
+            href={MEETUP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-1"
+          >
+            Meetup <ExternalLink size={11} className="opacity-60" />
+          </a>
         </nav>
 
         {/* Actions */}
@@ -47,15 +58,20 @@ export function TopNav() {
           >
             {t('language')}
           </button>
-          <a
-            href={MEETUP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-semibold px-4 py-2 rounded-md transition-opacity hover:opacity-90"
-            style={{ backgroundColor: '#C8834A', color: 'white' }}
-          >
-            {t('join')}
-          </a>
+
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
+
+          <Show when="signed-out">
+            <Link
+              href={`/${locale}/join`}
+              className="text-sm font-semibold px-4 py-2 rounded-md transition-opacity hover:opacity-90 whitespace-nowrap"
+              style={{ backgroundColor: ORANGE, color: 'white' }}
+            >
+              {t('joinCommunity')}
+            </Link>
+          </Show>
         </div>
       </div>
     </header>

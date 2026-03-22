@@ -3,6 +3,7 @@
     "about": "About",
     "events": "Events",
     "join": "Join Meetup",
+    "joinCommunity": "Join Our Community",
     "language": "Français"
   },
   "hero": {
@@ -13,7 +14,7 @@
     "ctaSecondary": "View Events"
   },
   "nextEvent": {
-    "badge": "Next Event",
+    "badge": "Upcoming Event",
     "title": "AI Leadership: Building the CTO of Tomorrow",
     "date": "April 24, 2026",
     "time": "6:30 PM CET",
@@ -50,8 +51,31 @@
   },
   "events": {
     "title": "Recent Events",
+    "subtitle": "Browse all past and upcoming Romandy CTO events.",
     "attendees": "attendees",
-    "viewAll": "View All Events on Meetup"
+    "viewAll": "View All Events on Meetup",
+    "viewEvent": "View event",
+    "past": "Past Events"
+  },
+  "join": {
+    "title": "Join Our Community",
+    "subtitle": "Stay connected with 510+ CTOs and technology leaders in Romandy. Get event invitations, community updates, and exclusive insights.",
+    "benefit1": "Be the first to know about upcoming events and reserve your spot before they sell out.",
+    "benefit2": "Receive curated insights, recaps, and resources from each event.",
+    "benefit3": "Connect with CTOs and technology leaders across Romandy, Switzerland.",
+    "formTitle": "Sign Up",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "company": "Company",
+    "optional": "optional",
+    "submit": "Join the Community",
+    "submitting": "Joining…",
+    "success": "Welcome to the community!",
+    "successSub": "You'll receive event invitations and community news at your email address.",
+    "alreadyMember": "You're already a member of our community.",
+    "error": "Something went wrong. Please try again.",
+    "privacy": "No spam. Unsubscribe at any time."
   },
   "register": {
     "back": "Back to home",

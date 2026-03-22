@@ -3,40 +3,13 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Users, Calendar, Star, MapPin, ArrowRight, Layers, UserSearch, Cpu, UsersRound, BarChart3, ShieldCheck } from 'lucide-react'
-import { NEXT_EVENT } from '@/lib/event'
+import { UPCOMING_EVENT, PAST_EVENTS } from '@/lib/events'
 
 const MEETUP_URL = 'https://www.meetup.com/romandy-cto-meetup-group/'
 const ORANGE = '#C8834A'
 const DARK = '#2D2D2D'
 const DARKER = '#252525'
 const CARD = '#333333'
-
-const PAST_EVENTS = [
-  {
-    title: 'Building Apps Will Never Be the Same Again: Welcome to AI-DLC!',
-    date: 'Feb 12, 2026',
-    location: 'Pictet, Route des Acacias 60, Carouge',
-    attendees: 56,
-  },
-  {
-    title: 'Quantum-AI Convergence: A Strategic Framework for Technology Leaders',
-    date: 'Jan 29, 2026',
-    location: 'Antaes, Avenue des Morgines 12, Lancy',
-    attendees: 42,
-  },
-  {
-    title: 'Tech Leaders Networking',
-    date: 'Dec 11, 2025',
-    location: 'La Jonquille, Genève',
-    attendees: 12,
-  },
-  {
-    title: 'The CTO Triad — Team, Timing & Technology',
-    date: 'Oct 21, 2025',
-    location: 'SonarSource, Vernier',
-    attendees: 27,
-  },
-]
 
 export default function LandingPage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale)
@@ -54,99 +27,68 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
   return (
     <div className="flex flex-col" style={{ backgroundColor: DARK }}>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden py-32 text-center px-6" style={{ backgroundColor: DARKER }}>
-        {/* Subtle radial glow */}
+      {/* Hero — Next event above the fold */}
+      <section className="relative overflow-hidden py-20 px-6" style={{ backgroundColor: DARKER }}>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: `radial-gradient(ellipse 60% 50% at 50% 0%, rgba(200,131,74,0.12) 0%, transparent 70%)` }}
         />
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Logo mark */}
-          <div className="flex justify-center mb-8">
-            <Image src="/logo.svg" alt="Romandy CTO" width={80} height={65} priority />
+        <div className="relative max-w-4xl mx-auto text-center">
+          {/* Logo + wordmark */}
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <Image src="/logo.png" alt="Romandy CTO" width={44} height={29} priority />
+            <span className="text-lg font-black text-white tracking-widest uppercase">
+              Romandy <span style={{ color: ORANGE }}>CTO</span>
+            </span>
           </div>
 
-          {/* Badge */}
+          {/* Upcoming event badge */}
           <span
-            className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 border"
+            className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5 border"
             style={{ color: ORANGE, borderColor: `${ORANGE}40`, backgroundColor: `${ORANGE}12` }}
           >
-            {t('hero.badge')}
+            {t('nextEvent.badge')}
           </span>
 
-          {/* Headline */}
-          <h1 className="text-5xl sm:text-7xl font-black text-white uppercase leading-none tracking-tight mb-6">
-            {t('hero.title')}
+          {/* Event title */}
+          <h1 className="text-4xl sm:text-6xl font-black text-white uppercase leading-none tracking-tight mb-6">
+            {locale === 'fr' ? UPCOMING_EVENT.titleFr : UPCOMING_EVENT.title}
           </h1>
 
-          <p className="text-lg text-white/50 max-w-xl mx-auto mb-10 leading-relaxed">
-            {t('hero.subtitle')}
-          </p>
+          {/* Date / location */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/50 mb-10">
+            <span className="flex items-center gap-1.5">
+              <Calendar size={13} style={{ color: ORANGE }} />
+              {UPCOMING_EVENT.date} · {UPCOMING_EVENT.time}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <MapPin size={13} style={{ color: ORANGE }} />
+              {UPCOMING_EVENT.location}
+            </span>
+          </div>
 
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={MEETUP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-md font-semibold text-white transition-opacity hover:opacity-90"
+            <Link
+              href={`/${locale}/register`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md font-bold text-white transition-opacity hover:opacity-90"
               style={{ backgroundColor: ORANGE }}
             >
-              {t('hero.cta')} <ArrowRight size={16} />
-            </a>
-            <a
-              href="#events"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-md font-semibold text-white border transition-colors hover:border-white/40"
+              {t('nextEvent.cta')} <ArrowRight size={16} />
+            </Link>
+            <Link
+              href={`/${locale}/join`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md font-semibold text-white border transition-colors hover:border-white/40"
               style={{ borderColor: 'rgba(255,255,255,0.2)', backgroundColor: 'transparent' }}
             >
-              {t('hero.ctaSecondary')}
-            </a>
+              {t('nav.joinCommunity')}
+            </Link>
           </div>
-        </div>
-      </section>
 
-      {/* Next Event */}
-      <section style={{ backgroundColor: DARK, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <div
-            className="rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row gap-8 items-start sm:items-center justify-between"
-            style={{ backgroundColor: DARKER, border: `1px solid ${ORANGE}30` }}
-          >
-            <div className="flex-1">
-              <span
-                className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4 border"
-                style={{ color: ORANGE, borderColor: `${ORANGE}40`, backgroundColor: `${ORANGE}12` }}
-              >
-                {t('nextEvent.badge')}
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase leading-tight mb-4">
-                {t('nextEvent.title')}
-              </h2>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/50">
-                <span className="flex items-center gap-1.5">
-                  <Calendar size={13} style={{ color: ORANGE }} />
-                  {t('nextEvent.date')} · {t('nextEvent.time')}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <MapPin size={13} style={{ color: ORANGE }} />
-                  {t('nextEvent.location')}
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col items-start sm:items-end gap-3 shrink-0">
-              <span className="text-sm font-bold" style={{ color: ORANGE }}>
-                {NEXT_EVENT.spots} {t('nextEvent.spotsLeft')}
-              </span>
-              <Link
-                href={`/${locale}/register`}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-white transition-opacity hover:opacity-90 whitespace-nowrap"
-                style={{ backgroundColor: ORANGE }}
-              >
-                {t('nextEvent.cta')} <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
+          <p className="text-xs mt-5" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            {UPCOMING_EVENT.maxSpots} {t('nextEvent.spotsLeft')}
+          </p>
         </div>
       </section>
 
@@ -185,7 +127,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
               className="rounded-2xl p-8 text-center w-72"
               style={{ backgroundColor: CARD, border: `1px solid rgba(255,255,255,0.08)` }}
             >
-              <Image src="/logo.svg" alt="Romandy CTO" width={72} height={58} className="mx-auto mb-5" />
+              <Image src="/logo.png" alt="Romandy CTO" width={72} height={48} className="mx-auto mb-5" />
               <div className="text-xs font-bold tracking-widest text-white/50 uppercase mb-1">ROMANDY</div>
               <div className="text-3xl font-black text-white tracking-tight">CTO</div>
               <div className="flex justify-center gap-0.5 mt-4">
@@ -231,24 +173,24 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
         <h2 className="text-4xl font-black text-white uppercase text-center mb-14">{t('events.title')}</h2>
         <div className="grid sm:grid-cols-2 gap-5 mb-10">
           {PAST_EVENTS.map((event) => (
-            <a
-              key={event.title}
-              href={MEETUP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              key={event.slug}
+              href={`/${locale}/events/${event.slug}`}
               className="group rounded-xl p-6 block card-hover"
               style={{ backgroundColor: CARD, border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <div className="flex items-start justify-between gap-4 mb-4">
                 <h3 className="font-semibold text-white leading-snug group-hover:text-[#C8834A] transition-colors">
-                  {event.title}
+                  {locale === 'fr' ? event.titleFr : event.title}
                 </h3>
-                <span
-                  className="shrink-0 text-xs font-bold rounded-full px-2.5 py-1 whitespace-nowrap"
-                  style={{ backgroundColor: `${ORANGE}20`, color: ORANGE }}
-                >
-                  {event.attendees} {t('events.attendees')}
-                </span>
+                {event.attendees && (
+                  <span
+                    className="shrink-0 text-xs font-bold rounded-full px-2.5 py-1 whitespace-nowrap"
+                    style={{ backgroundColor: `${ORANGE}20`, color: ORANGE }}
+                  >
+                    {event.attendees} {t('events.attendees')}
+                  </span>
+                )}
               </div>
               <div className="flex flex-col gap-1 text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
                 <div className="flex items-center gap-1.5">
@@ -258,7 +200,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
                   <MapPin size={12} style={{ color: ORANGE }} /> {event.location}
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
         <div className="text-center">
@@ -277,20 +219,29 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
       {/* CTA Banner */}
       <section className="py-24 px-6" style={{ backgroundColor: DARKER }}>
         <div className="max-w-3xl mx-auto text-center">
-          <Image src="/logo.svg" alt="Romandy CTO" width={56} height={45} className="mx-auto mb-8 opacity-80" />
+          <Image src="/logo.png" alt="Romandy CTO" width={56} height={37} className="mx-auto mb-8 opacity-80" />
           <h2 className="text-4xl font-black text-white uppercase mb-4">{t('cta.title')}</h2>
           <p className="text-lg mb-10 max-w-lg mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
             {t('cta.subtitle')}
           </p>
-          <a
-            href={MEETUP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-md font-semibold text-white transition-opacity hover:opacity-90"
-            style={{ backgroundColor: ORANGE }}
-          >
-            {t('cta.button')} <ArrowRight size={16} />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`/${locale}/join`}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-md font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: ORANGE }}
+            >
+              {t('nav.joinCommunity')} <ArrowRight size={16} />
+            </Link>
+            <a
+              href={MEETUP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-md font-semibold text-white border transition-colors hover:border-white/40"
+              style={{ borderColor: 'rgba(255,255,255,0.2)' }}
+            >
+              {t('cta.button')} <ArrowRight size={16} />
+            </a>
+          </div>
           <p className="text-sm mt-4" style={{ color: 'rgba(255,255,255,0.3)' }}>{t('cta.free')}</p>
         </div>
       </section>
@@ -299,7 +250,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
       <footer style={{ borderTop: '1px solid rgba(255,255,255,0.07)', backgroundColor: DARK }}>
         <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm" style={{ color: 'rgba(255,255,255,0.35)' }}>
           <div className="flex items-center gap-2">
-            <Image src="/logo.svg" alt="Romandy CTO" width={22} height={18} />
+            <Image src="/logo.png" alt="Romandy CTO" width={22} height={15} />
             <span className="font-bold text-white/60 tracking-wide text-xs uppercase">{t('footer.rights')}</span>
           </div>
           <div className="flex items-center gap-1.5">

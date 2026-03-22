@@ -44,7 +44,7 @@ export default function RegisterPage({ params: { locale } }: { params: { locale:
 
           {/* Left: event info */}
           <div>
-            <Image src="/logo.svg" alt="Romandy CTO" width={52} height={42} className="mb-8" />
+            <Image src="/logo.png" alt="Romandy CTO" width={52} height={42} className="mb-8" />
 
             <span
               className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4 border"
