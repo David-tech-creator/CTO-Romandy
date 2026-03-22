@@ -7,10 +7,17 @@ export function ScrambleText({ text, className }: { text: string; className?: st
   const [display, setDisplay] = useState(text)
   const iteration = useRef(0)
   const frame = useRef<number>()
+  const tick = useRef(0)
 
   useEffect(() => {
     iteration.current = 0
+    tick.current = 0
     const scramble = () => {
+      // Only advance every 3rd frame (~50ms steps at 60fps) for a visible effect
+      tick.current += 1
+      if (tick.current % 3 === 0) {
+        iteration.current += 0.35
+      }
       setDisplay(
         text.split('').map((char, i) => {
           if (char === ' ' || char === '.' || char === ',') return char
@@ -18,7 +25,6 @@ export function ScrambleText({ text, className }: { text: string; className?: st
           return CHARS[Math.floor(Math.random() * CHARS.length)]
         }).join('')
       )
-      iteration.current += 0.6
       if (iteration.current < text.length) {
         frame.current = requestAnimationFrame(scramble)
       } else {
