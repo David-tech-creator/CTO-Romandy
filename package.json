@@ -10,7 +10,7 @@
     "db:push": "prisma db push",
     "db:generate": "prisma generate --no-engine",
     "db:studio": "prisma studio",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate --no-engine"
   },
   "dependencies": {
     "@prisma/client": "latest",
