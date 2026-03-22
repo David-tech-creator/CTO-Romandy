@@ -8,10 +8,33 @@
   },
   "hero": {
     "badge": "Communauté CTO Romandie",
-    "title": "Là où les Leaders Tech se Retrouvent",
-    "subtitle": "Rejoignez 510+ CTOs et leaders technologiques en Romandie pour des discussions enrichissantes, du networking et des opportunités de croissance.",
-    "cta": "Rejoindre sur Meetup",
-    "ctaSecondary": "Voir les événements"
+    "title": "Where Technology Leaders Connect",
+    "subtitle": "Join 510+ CTOs and technology leaders in Romandy for insightful discussions, networking, and growth opportunities.",
+    "cta": "Rejoindre la Communauté",
+    "ctaEvent": "S'inscrire au prochain événement",
+    "ctaSecondary": "Voir les événements",
+    "viewEvent": "Voir l'événement"
+  },
+  "who": {
+    "title": "Fait pour ceux qui construisent",
+    "body1": "Notre nom dit CTO. Notre communauté s'adresse à tous ceux qui pensent comme tel — le fondateur qui décide quels paris technologiques faire, le VP Engineering qui fait passer une équipe de 12 à 80 personnes, l'ingénieur senior qui entre dans un rôle de leadership pour la première fois, le leader produit qui vit à l'intersection de ce qui est possible et de ce qui est nécessaire.",
+    "body2": "Si vous tenez à construire des choses durables — et aux personnes qui le rendent possible — vous avez votre place ici."
+  },
+  "connect": {
+    "title": "Plus qu'un meetup. Une communauté vivante.",
+    "subtitle": "Les événements, c'est là où on se rencontre. Tout ce qui se passe entre les deux, c'est là où on grandit.",
+    "events": {
+      "title": "Événements mensuels",
+      "body": "Des soirées en présentiel, soignées — conférences, tables rondes et discussions ouvertes. Assez intimes pour avoir de vraies conversations. Assez sérieuses pour valoir votre temps."
+    },
+    "slack": {
+      "title": "Slack privé",
+      "body": "Rejoignez 500+ pairs dans notre Slack réservé aux membres. Posez une question le mardi, obtenez cinq réponses de praticiens expérimentés d'ici jeudi. Conseils francs, opportunités d'emploi, et conversations qui restent entre nous."
+    },
+    "knowledge": {
+      "title": "Savoir partagé",
+      "body": "Chaque événement génère quelque chose de durable — des récapitulatifs, des points clés et des ressources partagés avec toute la communauté. L'apprentissage ne s'arrête pas quand les verres sont vides."
+    }
   },
   "nextEvent": {
     "badge": "Prochain Événement",
@@ -22,40 +45,55 @@
     "description": "Une soirée d'échanges sur l'intégration de l'IA dans le leadership technologique, la constitution d'équipes performantes et le networking avec les CTOs et leaders tech de Romandie.",
     "spotsLeft": "places disponibles",
     "spotsNote": "— réservez la vôtre dès maintenant",
-    "cta": "S'inscrire"
+    "cta": "S'inscrire",
+    "free": "Gratuit. Inscription requise."
   },
   "stats": {
-    "members": "Membres",
+    "members": "Membres en Romandie",
     "events": "Événements organisés",
-    "rating": "Note communautaire"
-  },
-  "about": {
-    "title": "À propos de la communauté",
-    "description": "Bienvenue à tous les CTOs et futurs CTOs ! Nous sommes un groupe en ligne et en présentiel qui organise des discussions et des conférences sur des sujets tels que le leadership technique, le recrutement, l'exploitation de la technologie, l'architecture, la constitution d'équipes, et bien plus encore.",
-    "location": "Basé à Genève, Suisse"
+    "rating": "Note communautaire",
+    "free": "Toujours",
+    "freeValue": "Gratuit"
   },
   "topics": {
-    "title": "Nos Thématiques",
+    "title": "De vraies conversations. Sans superflu.",
+    "subtitle": "Chaque session est choisie parce qu'elle compte pour les personnes présentes — pas parce qu'elle est tendance.",
     "leadership": "Leadership Technique",
-    "leadershipDesc": "Naviguer dans les défis du leadership des équipes et organisations d'ingénierie",
+    "leadershipDesc": "Comment diriger des équipes d'ingénierie à travers la croissance, le changement et la pression — sans perdre les personnes qu'on veut le plus garder.",
     "architecture": "Architecture & Systèmes",
-    "architectureDesc": "Concevoir des systèmes évolutifs et résilients pour les entreprises modernes",
+    "architectureDesc": "Ce qu'il faut vraiment pour concevoir des systèmes qui évoluent — techniquement et organisationnellement. Les décisions qu'aucun schéma d'architecture ne montre.",
     "recruiting": "Recrutement & Talents",
-    "recruitingDesc": "Attirer, recruter et fidéliser les meilleurs talents en ingénierie",
+    "recruitingDesc": "Trouver de bons ingénieurs est difficile. Les garder est plus difficile encore. Savoir quand laisser partir l'est encore plus. On parle des trois.",
     "technology": "Exploitation de la Technologie",
-    "technologyDesc": "Adoption stratégique de l'IA, du cloud et des technologies émergentes",
+    "technologyDesc": "IA, cloud, plateformes, outils émergents — quand adopter tôt, quand attendre, et comment construire une conviction dans un sens ou dans l'autre.",
     "teams": "Construire des Équipes",
-    "teamsDesc": "Créer des cultures et des équipes d'ingénierie haute performance",
+    "teamsDesc": "Culture, onboarding, rituels, remote vs. présentiel — le tableau complet de ce qui fait vraiment performer une équipe.",
     "strategy": "Stratégie Tech",
-    "strategyDesc": "Aligner les décisions technologiques avec les objectifs et la vision de l'entreprise"
+    "strategyDesc": "Comment connecter les décisions techniques aux résultats business, et les communiquer clairement à n'importe qui dans la salle — technique ou non."
   },
   "events": {
     "title": "Événements Récents",
+    "headline": "23 événements. Des centaines de conversations.",
+    "headlineSub": "Chacun, une raison de revenir au prochain.",
     "subtitle": "Découvrez tous les événements passés et à venir du Romandy CTO.",
     "attendees": "participants",
     "viewAll": "Voir tous les événements sur Meetup",
+    "viewArchive": "Archive complète",
     "viewEvent": "Voir l'événement",
     "past": "Événements Passés"
+  },
+  "joinDual": {
+    "title": "Deux portes d'entrée. Toutes deux gratuites.",
+    "subtitle": "Commencez par ce qui vous convient. Il n'y a pas de mauvais choix.",
+    "slackTitle": "Rejoindre le Slack communautaire",
+    "slackBody": "Connectez-vous avec 500+ pairs entre les événements. Posez des questions, partagez des insights, et restez proche de ce qui se passe dans la scène tech de Romandie — à votre rythme, pas seulement les soirs d'événements.",
+    "slackCta": "Rejoindre la Communauté",
+    "eventTitle": "Venir au prochain événement",
+    "eventBody": "En présentiel. Soigné. Limité à 50 personnes. C'est là que les meilleures conversations commencent — et où vous rencontrerez des personnes dont vous parlerez encore des années plus tard.",
+    "eventCta": "Réserver ma place",
+    "free": "Toujours gratuit. Sans condition.",
+    "meetupNote": "Déjà sur Meetup ?",
+    "meetupLink": "Suivez-nous là aussi →"
   },
   "join": {
     "title": "Rejoindre Notre Communauté",
@@ -101,7 +139,7 @@
   },
   "footer": {
     "location": "Genève, Suisse",
-    "organizers": "Organisé par Anthony Dupré et son équipe",
+    "organizers": "Une communauté, maintenue avec soin",
     "meetup": "Voir sur Meetup",
     "rights": "Romandy CTO Meetup Group"
   }

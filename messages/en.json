@@ -10,8 +10,31 @@
     "badge": "Romandy CTO Community",
     "title": "Where Technology Leaders Connect",
     "subtitle": "Join 510+ CTOs and technology leaders in Romandy for insightful discussions, networking, and growth opportunities.",
-    "cta": "Join on Meetup",
-    "ctaSecondary": "View Events"
+    "cta": "Join Our Community",
+    "ctaEvent": "Register for Next Event",
+    "ctaSecondary": "View Events",
+    "viewEvent": "View event"
+  },
+  "who": {
+    "title": "Built for the people building things",
+    "body1": "Our name says CTO. Our community is for everyone who thinks like one — the founder deciding which technology bets to make, the VP of Engineering scaling a team from 12 to 80, the senior engineer stepping into leadership for the first time, the product leader who lives at the intersection of what's possible and what's needed.",
+    "body2": "If you care about building things that last — and about the people it takes to build them — you belong here."
+  },
+  "connect": {
+    "title": "More than a meetup. A community with a pulse.",
+    "subtitle": "Events are where we meet. Everything between them is where we grow.",
+    "events": {
+      "title": "Monthly events",
+      "body": "Curated in-person evenings — keynotes, panels, and open discussion. Small enough to have real conversations. Serious enough to be worth your time."
+    },
+    "slack": {
+      "title": "Private Slack",
+      "body": "Join 500+ peers in our members-only Slack. Ask a question on Tuesday, get five answers from experienced practitioners by Thursday. Candid advice, job opportunities, and conversations that stay in the room."
+    },
+    "knowledge": {
+      "title": "Shared knowledge",
+      "body": "Every event generates something lasting — recaps, key takeaways, and resources shared with the full community. Learning doesn't stop when the drinks run out."
+    }
   },
   "nextEvent": {
     "badge": "Upcoming Event",
@@ -22,40 +45,55 @@
     "description": "An evening of insights on AI integration in tech leadership, building high-performance engineering teams, and networking with CTOs and technology leaders across Romandy.",
     "spotsLeft": "spots available",
     "spotsNote": "— secure yours today",
-    "cta": "Register Now"
+    "cta": "Register Now",
+    "free": "Free to attend. Registration required."
   },
   "stats": {
-    "members": "Members",
-    "events": "Events Hosted",
-    "rating": "Community Rating"
-  },
-  "about": {
-    "title": "About the Community",
-    "description": "Welcome to all CTOs and aspiring CTOs! We are an online and in-person group hosting discussions and speaking events on topics such as technical leadership, recruiting, leveraging technology, architecture, building teams, and more.",
-    "location": "Based in Geneva, Switzerland"
+    "members": "Members across Romandy",
+    "events": "Events hosted",
+    "rating": "Community rating",
+    "free": "Always",
+    "freeValue": "Free"
   },
   "topics": {
-    "title": "What We Cover",
+    "title": "Real conversations. No fluff.",
+    "subtitle": "Every session is chosen because it matters to the people in the room — not because it's trending.",
     "leadership": "Technical Leadership",
-    "leadershipDesc": "Navigating the challenges of leading engineering teams and organizations",
+    "leadershipDesc": "How to lead engineering teams through growth, change, and pressure — without losing the people you most want to keep.",
     "architecture": "Architecture & Systems",
-    "architectureDesc": "Designing scalable, resilient systems for modern businesses",
+    "architectureDesc": "What it actually takes to design systems that scale — technically and organizationally. The decisions no architecture diagram shows you.",
     "recruiting": "Recruiting & Talent",
-    "recruitingDesc": "Attracting, hiring, and retaining top engineering talent",
+    "recruitingDesc": "Finding great engineers is hard. Keeping them is harder. Knowing when to let go is harder still. We talk about all three.",
     "technology": "Leveraging Technology",
-    "technologyDesc": "Strategic adoption of AI, cloud, and emerging technologies",
+    "technologyDesc": "AI, cloud, platforms, emerging tools — when to adopt early, when to wait, and how to build conviction either way.",
     "teams": "Building Teams",
-    "teamsDesc": "Creating high-performance engineering cultures and teams",
+    "teamsDesc": "Culture, onboarding, rituals, remote vs. in-person — the full picture of what actually makes a team perform.",
     "strategy": "Tech Strategy",
-    "strategyDesc": "Aligning technology decisions with business goals and vision"
+    "strategyDesc": "How to connect technical decisions to business outcomes, and communicate them clearly to anyone in the room — technical or not."
   },
   "events": {
     "title": "Recent Events",
+    "headline": "23 events. Hundreds of conversations.",
+    "headlineSub": "Each one a reason to show up to the next.",
     "subtitle": "Browse all past and upcoming Romandy CTO events.",
     "attendees": "attendees",
-    "viewAll": "View All Events on Meetup",
+    "viewAll": "View all events on Meetup",
+    "viewArchive": "Full archive",
     "viewEvent": "View event",
     "past": "Past Events"
+  },
+  "joinDual": {
+    "title": "Two ways in. Both free.",
+    "subtitle": "Start wherever feels right. There's no wrong door.",
+    "slackTitle": "Join the Slack community",
+    "slackBody": "Connect with 500+ peers between events. Ask questions, share insights, and stay close to what's happening in the Romandy tech scene — on your schedule, not just on event nights.",
+    "slackCta": "Join the Community",
+    "eventTitle": "Come to the next event",
+    "eventBody": "In-person. Curated. Limited to 50 people. This is where the best conversations start — and where you'll meet people you'll still be talking to years later.",
+    "eventCta": "Reserve Your Spot",
+    "free": "Always free. No catch.",
+    "meetupNote": "Already on Meetup?",
+    "meetupLink": "Follow us there too →"
   },
   "join": {
     "title": "Join Our Community",
@@ -101,7 +139,7 @@
   },
   "footer": {
     "location": "Geneva, Switzerland",
-    "organizers": "Organized by Anthony Dupré and team",
+    "organizers": "A community, maintained with care",
     "meetup": "View on Meetup",
     "rights": "Romandy CTO Meetup Group"
   }
