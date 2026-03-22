@@ -9,10 +9,12 @@ function parse(val: string): { prefix: string; num: number; suffix: string } {
 
 export function CountUp({ value, className }: { value: string; className?: string }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const [display, setDisplay] = useState('0')
+  const hasNumber = /[0-9]/.test(value)
   const { prefix, num, suffix } = parse(value)
+  const [display, setDisplay] = useState(hasNumber ? '0' : value)
 
   useEffect(() => {
+    if (!hasNumber) return
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return
       observer.disconnect()
@@ -30,7 +32,7 @@ export function CountUp({ value, className }: { value: string; className?: strin
     }, { threshold: 0.5 })
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
-  }, [num, prefix, suffix])
+  }, [hasNumber, num, prefix, suffix])
 
   return <span ref={ref} className={className}>{display}</span>
 }

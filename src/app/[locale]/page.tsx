@@ -148,10 +148,6 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
 
       {/* ── Who's in the room ─────────────────────────────────────────── */}
       <section className="py-16 px-6 relative overflow-hidden" style={{ backgroundColor: DARK }}>
-        {/* Sonar heartbeat rings — pulse metaphor */}
-        <div className="sonar-ring" />
-        <div className="sonar-ring sonar-ring-2" />
-        <div className="sonar-ring sonar-ring-3" />
         <div className="orb orb-orange orb-sm absolute top-0 right-0" style={{ opacity: 0.14 }} />
         <AnimateIn className="relative max-w-2xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-5">{t('who.title')}</h2>
@@ -162,6 +158,10 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
 
       {/* ── Three ways to connect ─────────────────────────────────────── */}
       <section className="py-16 px-6 relative overflow-hidden" style={{ backgroundColor: DARKER }}>
+        {/* Sonar heartbeat rings — pulse metaphor */}
+        <div className="sonar-ring" />
+        <div className="sonar-ring sonar-ring-2" />
+        <div className="sonar-ring sonar-ring-3" />
         <div className="orb orb-orange orb-md absolute -bottom-20 -right-20" style={{ opacity: 0.20 }} />
         <div className="max-w-6xl mx-auto">
           <AnimateIn className="text-center mb-10">
