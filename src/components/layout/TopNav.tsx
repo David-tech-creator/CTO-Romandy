@@ -26,7 +26,7 @@ export function TopNav() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center gap-2.5">
-          <Image src="/logo.png" alt="Romandy CTO" width={36} height={24} />
+          <Image src="/logo.png" alt="Romandy CTO" width={72} height={48} />
           <div className="flex flex-col leading-none">
             <span className="text-[9px] font-black text-white/70 tracking-[0.2em] uppercase">ROMANDY</span>
             <span className="text-base font-black text-white tracking-wide leading-none">CTO</span>

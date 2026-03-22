@@ -55,44 +55,38 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
     <div className="flex flex-col" style={{ backgroundColor: DARK }}>
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-28 px-6 text-center" style={{ backgroundColor: DARKER }}>
+      <section className="relative overflow-hidden py-12 px-6 text-center" style={{ backgroundColor: DARKER }}>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: `radial-gradient(ellipse 70% 55% at 50% 0%, rgba(200,131,74,0.13) 0%, transparent 70%)` }}
         />
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Logo mark — centerstage */}
-          <div className="flex flex-col items-center mb-10">
-            <Image src="/logo.png" alt="Romandy CTO" width={180} height={120} priority />
-            <div className="mt-4 text-base font-black text-white tracking-[0.25em] uppercase">
-              ROMANDY
-            </div>
-            <div className="text-5xl sm:text-6xl font-black text-white tracking-tight leading-none">
-              CTO
-            </div>
+          {/* Logo mark */}
+          <div className="flex justify-center mb-6">
+            <Image src="/logo.png" alt="Romandy CTO" width={300} height={200} priority className="drop-shadow-none" />
           </div>
 
           {/* Badge */}
           <span
-            className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 border"
+            className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5 border"
             style={{ color: ORANGE, borderColor: `${ORANGE}40`, backgroundColor: `${ORANGE}12` }}
           >
             {t('hero.badge')}
           </span>
 
           {/* Headline — kept exactly */}
-          <h1 className="text-5xl sm:text-7xl font-black text-white uppercase leading-none tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-6xl font-black text-white uppercase leading-none tracking-tight mb-4">
             {t('hero.title')}
           </h1>
 
           {/* Subtitle — kept exactly */}
-          <p className="text-lg text-white/50 max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base text-white/50 max-w-xl mx-auto mb-8 leading-relaxed">
             {t('hero.subtitle')}
           </p>
 
           {/* Primary / secondary CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
             <Link
               href={`/${locale}/join`}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md font-bold text-white transition-opacity hover:opacity-90"
