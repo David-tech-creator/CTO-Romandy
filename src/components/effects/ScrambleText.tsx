@@ -13,10 +13,13 @@ export function ScrambleText({ text, className }: { text: string; className?: st
     iteration.current = 0
     tick.current = 0
     const scramble = () => {
-      // Advance every 5th frame (~83ms steps at 60fps) for a clearly visible effect
+      // Mobile is slower CPU — advance faster so effect doesn't drag
+      const isMobile = window.innerWidth < 768
       tick.current += 1
-      if (tick.current % 5 === 0) {
-        iteration.current += 0.3
+      const every = isMobile ? 3 : 5
+      const step  = isMobile ? 0.5 : 0.3
+      if (tick.current % every === 0) {
+        iteration.current += step
       }
       setDisplay(
         text.split('').map((char, i) => {
