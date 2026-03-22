@@ -30,17 +30,17 @@ export default function RegisterPage({ params: { locale } }: { params: { locale:
 
   return (
     <div style={{ backgroundColor: DARKER, minHeight: '100vh' }}>
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="max-w-5xl mx-auto px-6 py-8 sm:py-16">
 
         {/* Back link */}
         <Link
           href={`/${locale}`}
-          className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors mb-8 sm:mb-12"
         >
           <ArrowLeft size={14} /> {t('register.back')}
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
 
           {/* Left: event info */}
           <div>
@@ -85,7 +85,7 @@ export default function RegisterPage({ params: { locale } }: { params: { locale:
 
           {/* Right: form */}
           <div
-            className="rounded-2xl p-8"
+            className="rounded-2xl p-5 sm:p-8"
             style={{ backgroundColor: CARD, border: '1px solid rgba(255,255,255,0.07)' }}
           >
             <h2 className="text-xl font-black text-white uppercase mb-1">{t('register.title')}</h2>

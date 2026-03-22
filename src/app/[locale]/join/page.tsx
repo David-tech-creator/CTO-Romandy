@@ -15,7 +15,7 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: DARK }}>
-      <div className="max-w-5xl mx-auto px-6 py-12">
+      <div className="max-w-5xl mx-auto px-6 py-8 sm:py-12">
 
         <Link
           href={`/${locale}`}
@@ -24,7 +24,7 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
           <ArrowLeft size={14} /> {t('register.back')}
         </Link>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start">
 
           {/* Left: info */}
           <div>
@@ -60,7 +60,7 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
 
           {/* Right: form */}
           <div
-            className="rounded-2xl p-8"
+            className="rounded-2xl p-5 sm:p-8"
             style={{ backgroundColor: DARKER, border: `1px solid rgba(255,255,255,0.08)` }}
           >
             <JoinForm locale={locale} />

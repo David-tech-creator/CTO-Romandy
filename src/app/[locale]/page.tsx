@@ -165,7 +165,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
         <div className="orb orb-orange orb-md absolute -bottom-20 -right-20" style={{ opacity: 0.20 }} />
         <div className="max-w-6xl mx-auto">
           <AnimateIn className="text-center mb-10">
-            <h2 className="text-4xl font-black text-white uppercase mb-4">{t('connect.title')}</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-4">{t('connect.title')}</h2>
             <p className="text-white/45 max-w-2xl mx-auto">{t('connect.subtitle')}</p>
           </AnimateIn>
 
@@ -210,7 +210,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
               >
                 {t('nextEvent.badge')}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase leading-tight mb-4">
+              <h2 className="text-xl sm:text-3xl font-black text-white uppercase leading-tight mb-4">
                 {locale === 'fr' ? UPCOMING_EVENT.titleFr : UPCOMING_EVENT.title}
               </h2>
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/50">
@@ -247,7 +247,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
       <section className="py-16 px-6" style={{ backgroundColor: DARKER, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <div className="max-w-6xl mx-auto">
           <AnimateIn className="text-center mb-10">
-            <h2 className="text-4xl font-black text-white uppercase mb-4">{t('topics.title')}</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-4">{t('topics.title')}</h2>
             {t('topics.subtitle') && <p className="text-white/45 max-w-lg mx-auto">{t('topics.subtitle')}</p>}
           </AnimateIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -280,7 +280,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <h2 className="text-4xl font-black text-white uppercase mb-2">{t('events.headline')}</h2>
+              <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-2">{t('events.headline', { count: PAST_EVENTS.length })}</h2>
               <p className="text-white/45">{t('events.headlineSub')}</p>
             </div>
             <Link
@@ -348,7 +348,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
         <div className="relative max-w-6xl mx-auto px-6 py-14 grid grid-cols-2 sm:grid-cols-4 gap-10 text-center">
           {[
             { value: '510+', label: t('stats.members') },
-            { value: '23', label: t('stats.events') },
+            { value: String(PAST_EVENTS.length), label: t('stats.events') },
             { value: '4.8★', label: t('stats.rating') },
             { value: t('stats.freeValue'), label: t('stats.free') },
           ].map(({ value, label }) => (
@@ -366,7 +366,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
       <section id="about" className="py-16 px-6" style={{ backgroundColor: DARK }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-4xl font-black text-white uppercase mb-4">{t('joinDual.title')}</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-4">{t('joinDual.title')}</h2>
             {t('joinDual.subtitle') && <p className="text-white/50 max-w-md mx-auto">{t('joinDual.subtitle')}</p>}
           </div>
 

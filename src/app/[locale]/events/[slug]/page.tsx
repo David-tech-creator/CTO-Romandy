@@ -56,7 +56,7 @@ export default async function EventPage({
   return (
     <div className="min-h-screen" style={{ backgroundColor: DARK }}>
       {/* Event header */}
-      <div className="py-14 px-6" style={{ backgroundColor: DARKER }}>
+      <div className="py-8 sm:py-14 px-6" style={{ backgroundColor: DARKER }}>
         <div className="max-w-4xl mx-auto">
           <Link
             href={`/${locale}/events`}

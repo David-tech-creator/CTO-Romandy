@@ -1,10 +1,11 @@
 'use client'
 
+import { useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { UserButton, Show } from '@clerk/nextjs'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Menu, X } from 'lucide-react'
 import { BrandLockup } from '@/components/BrandLockup'
 
 const MEETUP_URL = 'https://www.meetup.com/romandy-cto-meetup-group/'
@@ -15,6 +16,7 @@ export function TopNav() {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
   const toggleLanguage = () => {
     const newLocale = locale === 'en' ? 'fr' : 'en'
@@ -28,7 +30,7 @@ export function TopNav() {
         {/* Brand lockup */}
         <BrandLockup locale={locale} size="md" />
 
-        {/* Nav links */}
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
           <a href={`/${locale}#about`} className="text-sm text-white/60 hover:text-white transition-colors">
             {t('about')}
@@ -46,19 +48,17 @@ export function TopNav() {
           </a>
         </nav>
 
-        {/* Actions */}
-        <div className="flex items-center gap-3">
+        {/* Desktop actions */}
+        <div className="hidden md:flex items-center gap-3">
           <button
             onClick={toggleLanguage}
             className="text-sm text-white/60 hover:text-white transition-colors px-2"
           >
             {t('language')}
           </button>
-
           <Show when="signed-in">
             <UserButton />
           </Show>
-
           <Show when="signed-out">
             <Link
               href={`/${locale}/join`}
@@ -69,7 +69,69 @@ export function TopNav() {
             </Link>
           </Show>
         </div>
+
+        {/* Mobile: lang + hamburger */}
+        <div className="flex md:hidden items-center gap-1">
+          <button
+            onClick={toggleLanguage}
+            className="text-sm text-white/60 hover:text-white transition-colors px-3 py-2"
+          >
+            {t('language')}
+          </button>
+          <button
+            onClick={() => setOpen(!open)}
+            className="p-2 text-white/60 hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {open && (
+        <div className="md:hidden nav-blur border-t border-white/10 px-6 py-5 flex flex-col gap-1">
+          <a
+            href={`/${locale}#about`}
+            onClick={() => setOpen(false)}
+            className="py-2.5 text-sm text-white/70 hover:text-white transition-colors"
+          >
+            {t('about')}
+          </a>
+          <a
+            href={`/${locale}#events`}
+            onClick={() => setOpen(false)}
+            className="py-2.5 text-sm text-white/70 hover:text-white transition-colors"
+          >
+            {t('events')}
+          </a>
+          <a
+            href={MEETUP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="py-2.5 text-sm text-white/70 hover:text-white transition-colors flex items-center gap-1.5"
+          >
+            Meetup <ExternalLink size={11} className="opacity-60" />
+          </a>
+          <div className="pt-3 border-t border-white/10 mt-1">
+            <Show when="signed-out">
+              <Link
+                href={`/${locale}/join`}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center w-full px-4 py-2.5 rounded-md font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: ORANGE }}
+              >
+                {t('joinCommunity')}
+              </Link>
+            </Show>
+            <Show when="signed-in">
+              <div className="py-1">
+                <UserButton />
+              </div>
+            </Show>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

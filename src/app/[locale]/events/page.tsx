@@ -28,10 +28,10 @@ export default function EventsPage({ params: { locale } }: { params: { locale: s
           >
             <ArrowLeft size={14} /> {t('register.back')}
           </Link>
-          <div className="flex items-center gap-6 mb-3">
-            <BrandLockup locale={locale} size="lg" linked={false} />
-            <div className="w-px h-10 bg-white/10" />
-            <h1 className="text-3xl font-black text-white uppercase">{t('events.title')}</h1>
+          <div className="flex flex-wrap items-center gap-3 sm:gap-6 mb-3">
+            <BrandLockup locale={locale} size="md" linked={false} />
+            <div className="hidden sm:block w-px h-10 bg-white/10" />
+            <h1 className="text-2xl sm:text-3xl font-black text-white uppercase">{t('events.title')}</h1>
           </div>
           <p className="text-white/45 max-w-xl">{t('events.subtitle')}</p>
         </div>
