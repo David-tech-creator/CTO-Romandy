@@ -7,13 +7,14 @@ const supabase = createClient(
 )
 
 export async function POST(req: NextRequest) {
-  const { firstName, lastName, email, company, locale } = await req.json()
+  const { firstName, lastName, email, company, role, locale } = await req.json()
 
   const { error } = await supabase.from('community_members').insert({
     first_name: firstName,
     last_name: lastName,
     email,
-    company: company || null,
+    company,
+    role: role || null,
     locale: locale || 'en',
   })
 

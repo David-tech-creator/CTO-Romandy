@@ -6,6 +6,11 @@ import { ArrowRight, CheckCircle } from 'lucide-react'
 
 const ORANGE = '#C8834A'
 
+const inputStyle = {
+  backgroundColor: 'rgba(255,255,255,0.06)',
+  border: '1px solid rgba(255,255,255,0.12)',
+}
+
 export function JoinForm({ locale }: { locale: string }) {
   const t = useTranslations('join')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'exists' | 'error'>('idle')
@@ -19,6 +24,7 @@ export function JoinForm({ locale }: { locale: string }) {
       lastName: (form.elements.namedItem('lastName') as HTMLInputElement).value,
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
       company: (form.elements.namedItem('company') as HTMLInputElement).value,
+      role: (form.elements.namedItem('role') as HTMLInputElement).value,
       locale,
     }
     try {
@@ -62,13 +68,8 @@ export function JoinForm({ locale }: { locale: string }) {
           <input
             name="firstName"
             required
-            className="w-full px-4 py-2.5 rounded-lg text-white text-sm outline-none focus:ring-2"
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              // @ts-expect-error ring color
-              '--tw-ring-color': ORANGE,
-            }}
+            className="w-full px-4 py-2.5 rounded-lg text-white text-sm outline-none"
+            style={inputStyle}
           />
         </div>
         <div>
@@ -78,8 +79,8 @@ export function JoinForm({ locale }: { locale: string }) {
           <input
             name="lastName"
             required
-            className="w-full px-4 py-2.5 rounded-lg text-white text-sm outline-none focus:ring-2"
-            style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}
+            className="w-full px-4 py-2.5 rounded-lg text-white text-sm outline-none"
+            style={inputStyle}
           />
         </div>
       </div>
@@ -93,18 +94,32 @@ export function JoinForm({ locale }: { locale: string }) {
           type="email"
           required
           className="w-full px-4 py-2.5 rounded-lg text-white text-sm outline-none"
-          style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}
+          style={inputStyle}
         />
       </div>
 
       <div>
         <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-1.5">
-          {t('company')} <span className="normal-case font-normal">({t('optional')})</span>
+          {t('company')} *
         </label>
         <input
           name="company"
+          required
           className="w-full px-4 py-2.5 rounded-lg text-white text-sm outline-none"
-          style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}
+          style={inputStyle}
+        />
+      </div>
+
+      <div>
+        <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-1.5">
+          {t('role')} *
+        </label>
+        <input
+          name="role"
+          required
+          placeholder={t('rolePlaceholder')}
+          className="w-full px-4 py-2.5 rounded-lg text-white text-sm outline-none placeholder:text-white/25"
+          style={inputStyle}
         />
       </div>
 

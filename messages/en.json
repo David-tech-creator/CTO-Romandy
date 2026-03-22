@@ -97,7 +97,7 @@
   "join": {
     "title": "Join Our Community",
     "subtitle": "Stay connected with 510+ CTOs and technology leaders in Romandy. Get event invitations, community updates, and exclusive insights.",
-    "benefit1": "Be the first to know about upcoming events and reserve your spot before they sell out.",
+    "benefit1": "Be the first to know about upcoming events and secure your spot — always free.",
     "benefit2": "Receive curated insights, recaps, and resources from each event.",
     "benefit3": "Connect with CTOs and technology leaders across Romandy, Switzerland.",
     "formTitle": "Sign Up",
@@ -105,6 +105,8 @@
     "lastName": "Last Name",
     "email": "Email",
     "company": "Company",
+    "role": "Your Role",
+    "rolePlaceholder": "e.g. CTO, VP Engineering, Founder…",
     "optional": "optional",
     "submit": "Join the Community",
     "submitting": "Joining…",

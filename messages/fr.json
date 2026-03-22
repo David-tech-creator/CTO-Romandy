@@ -97,7 +97,7 @@
   "join": {
     "title": "Rejoindre Notre Communauté",
     "subtitle": "Restez connecté avec 510+ CTOs et leaders technologiques en Romandie. Recevez les invitations aux événements, les actualités et les insights exclusifs.",
-    "benefit1": "Soyez le premier informé des prochains événements et réservez votre place avant qu'ils ne soient complets.",
+    "benefit1": "Soyez le premier informé des prochains événements et réservez votre place en avance — toujours gratuit.",
     "benefit2": "Recevez des insights, des récapitulatifs et des ressources de chaque événement.",
     "benefit3": "Connectez-vous avec des CTOs et leaders technologiques de toute la Romandie, Suisse.",
     "formTitle": "S'inscrire",
@@ -105,6 +105,8 @@
     "lastName": "Nom",
     "email": "Email",
     "company": "Entreprise",
+    "role": "Votre rôle",
+    "rolePlaceholder": "ex. CTO, VP Engineering, Fondateur…",
     "optional": "optionnel",
     "submit": "Rejoindre la Communauté",
     "submitting": "Inscription…",
