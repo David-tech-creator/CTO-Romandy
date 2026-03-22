@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "about": "About",
+    "events": "Events",
+    "join": "Join Meetup",
+    "language": "Français"
+  },
+  "hero": {
+    "badge": "Romandy CTO Community",
+    "title": "Where Technology Leaders Connect",
+    "subtitle": "Join 510+ CTOs and technology leaders in Romandy for insightful discussions, networking, and growth opportunities.",
+    "cta": "Join on Meetup",
+    "ctaSecondary": "View Events"
+  },
+  "stats": {
+    "members": "Members",
+    "events": "Events Hosted",
+    "rating": "Community Rating"
+  },
+  "about": {
+    "title": "About the Community",
+    "description": "Welcome to all CTOs and aspiring CTOs! We are an online and in-person group hosting discussions and speaking events on topics such as technical leadership, recruiting, leveraging technology, architecture, building teams, and more.",
+    "location": "Based in Geneva, Switzerland"
+  },
+  "topics": {
+    "title": "What We Cover",
+    "leadership": "Technical Leadership",
+    "leadershipDesc": "Navigating the challenges of leading engineering teams and organizations",
+    "architecture": "Architecture & Systems",
+    "architectureDesc": "Designing scalable, resilient systems for modern businesses",
+    "recruiting": "Recruiting & Talent",
+    "recruitingDesc": "Attracting, hiring, and retaining top engineering talent",
+    "technology": "Leveraging Technology",
+    "technologyDesc": "Strategic adoption of AI, cloud, and emerging technologies",
+    "teams": "Building Teams",
+    "teamsDesc": "Creating high-performance engineering cultures and teams",
+    "strategy": "Tech Strategy",
+    "strategyDesc": "Aligning technology decisions with business goals and vision"
+  },
+  "events": {
+    "title": "Recent Events",
+    "attendees": "attendees",
+    "viewAll": "View All Events on Meetup"
+  },
+  "cta": {
+    "title": "Ready to Connect?",
+    "subtitle": "Join our community of technology leaders in Romandy. Meet peers, share experiences, and grow together.",
+    "button": "Join the Meetup Group",
+    "free": "Free to join"
+  },
+  "footer": {
+    "location": "Geneva, Switzerland",
+    "organizers": "Organized by Anthony Dupré and team",
+    "meetup": "View on Meetup",
+    "rights": "Romandy CTO Meetup Group"
+  }
+}

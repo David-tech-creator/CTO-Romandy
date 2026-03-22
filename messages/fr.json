@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "about": "À propos",
+    "events": "Événements",
+    "join": "Rejoindre Meetup",
+    "language": "English"
+  },
+  "hero": {
+    "badge": "Communauté CTO Romandie",
+    "title": "Là où les Leaders Tech se Retrouvent",
+    "subtitle": "Rejoignez 510+ CTOs et leaders technologiques en Romandie pour des discussions enrichissantes, du networking et des opportunités de croissance.",
+    "cta": "Rejoindre sur Meetup",
+    "ctaSecondary": "Voir les événements"
+  },
+  "stats": {
+    "members": "Membres",
+    "events": "Événements organisés",
+    "rating": "Note communautaire"
+  },
+  "about": {
+    "title": "À propos de la communauté",
+    "description": "Bienvenue à tous les CTOs et futurs CTOs ! Nous sommes un groupe en ligne et en présentiel qui organise des discussions et des conférences sur des sujets tels que le leadership technique, le recrutement, l'exploitation de la technologie, l'architecture, la constitution d'équipes, et bien plus encore.",
+    "location": "Basé à Genève, Suisse"
+  },
+  "topics": {
+    "title": "Nos Thématiques",
+    "leadership": "Leadership Technique",
+    "leadershipDesc": "Naviguer dans les défis du leadership des équipes et organisations d'ingénierie",
+    "architecture": "Architecture & Systèmes",
+    "architectureDesc": "Concevoir des systèmes évolutifs et résilients pour les entreprises modernes",
+    "recruiting": "Recrutement & Talents",
+    "recruitingDesc": "Attirer, recruter et fidéliser les meilleurs talents en ingénierie",
+    "technology": "Exploitation de la Technologie",
+    "technologyDesc": "Adoption stratégique de l'IA, du cloud et des technologies émergentes",
+    "teams": "Construire des Équipes",
+    "teamsDesc": "Créer des cultures et des équipes d'ingénierie haute performance",
+    "strategy": "Stratégie Tech",
+    "strategyDesc": "Aligner les décisions technologiques avec les objectifs et la vision de l'entreprise"
+  },
+  "events": {
+    "title": "Événements Récents",
+    "attendees": "participants",
+    "viewAll": "Voir tous les événements sur Meetup"
+  },
+  "cta": {
+    "title": "Prêt à vous connecter ?",
+    "subtitle": "Rejoignez notre communauté de leaders technologiques en Romandie. Rencontrez des pairs, partagez vos expériences et progressez ensemble.",
+    "button": "Rejoindre le groupe Meetup",
+    "free": "Gratuit"
+  },
+  "footer": {
+    "location": "Genève, Suisse",
+    "organizers": "Organisé par Anthony Dupré et son équipe",
+    "meetup": "Voir sur Meetup",
+    "rights": "Romandy CTO Meetup Group"
+  }
+}
