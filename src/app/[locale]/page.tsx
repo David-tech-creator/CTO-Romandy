@@ -228,7 +228,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl font-black text-white uppercase mb-4">{t('topics.title')}</h2>
-            <p className="text-white/45 max-w-lg mx-auto">{t('topics.subtitle')}</p>
+            {t('topics.subtitle') && <p className="text-white/45 max-w-lg mx-auto">{t('topics.subtitle')}</p>}
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {topics.map(({ key, icon: Icon }) => (
@@ -339,7 +339,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl font-black text-white uppercase mb-4">{t('joinDual.title')}</h2>
-            <p className="text-white/50 max-w-md mx-auto">{t('joinDual.subtitle')}</p>
+            {t('joinDual.subtitle') && <p className="text-white/50 max-w-md mx-auto">{t('joinDual.subtitle')}</p>}
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">

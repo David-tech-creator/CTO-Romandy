@@ -20,7 +20,7 @@
     "body": "Our name says CTO. Our community is for everyone who thinks at that level. You don't need a specific title. You need to care about the right things: building great products, leading with clarity, and growing through honest conversation."
   },
   "connect": {
-    "title": "More than a meetup. A community with a pulse.",
+    "title": "A community with a pulse.",
     "subtitle": "Events are where we meet. Everything between them is where we grow.",
     "events": {
       "title": "Monthly events",
@@ -55,8 +55,8 @@
     "freeValue": "Free"
   },
   "topics": {
-    "title": "Real conversations. No fluff.",
-    "subtitle": "Every session is chosen because it matters to the people in the room — not because it's trending.",
+    "title": "What We Cover",
+    "subtitle": "",
     "leadership": "Technical Leadership",
     "leadershipDesc": "How to lead engineering teams through growth, change, and pressure — without losing the people you most want to keep.",
     "architecture": "Architecture & Systems",
@@ -82,8 +82,8 @@
     "past": "Past Events"
   },
   "joinDual": {
-    "title": "Two ways in. Both free.",
-    "subtitle": "Start wherever feels right. There's no wrong door.",
+    "title": "Get Involved",
+    "subtitle": "",
     "slackTitle": "Join the Slack community",
     "slackBody": "Connect with 500+ peers between events. Ask questions, share insights, and stay close to what's happening in the Romandy tech scene — on your schedule, not just on event nights.",
     "slackCta": "Join the Community",

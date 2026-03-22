@@ -20,7 +20,7 @@
     "body": "Notre nom dit CTO. Notre communauté s'adresse à tous ceux qui pensent à ce niveau. Pas besoin d'un titre précis. Il faut tenir aux bonnes choses : construire de bons produits, diriger avec clarté, et progresser à travers des conversations honnêtes."
   },
   "connect": {
-    "title": "Plus qu'un meetup. Une communauté vivante.",
+    "title": "Une communauté vivante.",
     "subtitle": "Les événements, c'est là où on se rencontre. Tout ce qui se passe entre les deux, c'est là où on grandit.",
     "events": {
       "title": "Événements mensuels",
@@ -55,8 +55,8 @@
     "freeValue": "Gratuit"
   },
   "topics": {
-    "title": "De vraies conversations. Sans superflu.",
-    "subtitle": "Chaque session est choisie parce qu'elle compte pour les personnes présentes — pas parce qu'elle est tendance.",
+    "title": "Ce que l'on couvre",
+    "subtitle": "",
     "leadership": "Leadership Technique",
     "leadershipDesc": "Comment diriger des équipes d'ingénierie à travers la croissance, le changement et la pression — sans perdre les personnes qu'on veut le plus garder.",
     "architecture": "Architecture & Systèmes",
@@ -82,8 +82,8 @@
     "past": "Événements Passés"
   },
   "joinDual": {
-    "title": "Deux portes d'entrée. Toutes deux gratuites.",
-    "subtitle": "Commencez par ce qui vous convient. Il n'y a pas de mauvais choix.",
+    "title": "Rejoindre la communauté",
+    "subtitle": "",
     "slackTitle": "Rejoindre le Slack communautaire",
     "slackBody": "Connectez-vous avec 500+ pairs entre les événements. Posez des questions, partagez des insights, et restez proche de ce qui se passe dans la scène tech de Romandie — à votre rythme, pas seulement les soirs d'événements.",
     "slackCta": "Rejoindre la Communauté",
