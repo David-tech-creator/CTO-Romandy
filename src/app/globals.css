@@ -84,9 +84,9 @@
 
   /* Updated nav blur — deeper black */
   .nav-blur {
-    background-color: rgba(6, 6, 6, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background-color: rgba(30, 30, 30, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .section-dark  { background-color: #252525; }
