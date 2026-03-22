@@ -12,6 +12,17 @@
     "cta": "Rejoindre sur Meetup",
     "ctaSecondary": "Voir les événements"
   },
+  "nextEvent": {
+    "badge": "Prochain Événement",
+    "title": "IA & Leadership : Construire le CTO de Demain",
+    "date": "24 avril 2026",
+    "time": "18h30 CET",
+    "location": "Genève, Suisse (lieu à confirmer)",
+    "description": "Une soirée d'échanges sur l'intégration de l'IA dans le leadership technologique, la constitution d'équipes performantes et le networking avec les CTOs et leaders tech de Romandie.",
+    "spotsLeft": "places disponibles",
+    "spotsNote": "— réservez la vôtre dès maintenant",
+    "cta": "S'inscrire"
+  },
   "stats": {
     "members": "Membres",
     "events": "Événements organisés",
@@ -41,6 +52,22 @@
     "title": "Événements Récents",
     "attendees": "participants",
     "viewAll": "Voir tous les événements sur Meetup"
+  },
+  "register": {
+    "back": "Retour à l'accueil",
+    "title": "Réserver votre place",
+    "subtitle": "Remplissez vos informations pour vous inscrire à cet événement.",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "company": "Entreprise",
+    "jobTitle": "Poste",
+    "optional": "optionnel",
+    "submit": "Confirmer l'inscription",
+    "success": "Vous êtes inscrit !",
+    "successSub": "À bientôt lors de l'événement. Une confirmation vous sera envoyée par email.",
+    "alreadyRegistered": "Vous êtes déjà inscrit à cet événement.",
+    "error": "Une erreur s'est produite. Veuillez réessayer."
   },
   "cta": {
     "title": "Prêt à vous connecter ?",

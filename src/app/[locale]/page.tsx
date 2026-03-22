@@ -1,7 +1,9 @@
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Users, Calendar, Star, MapPin, ArrowRight, Layers, UserSearch, Cpu, UsersRound, BarChart3, ShieldCheck } from 'lucide-react'
+import { NEXT_EVENT } from '@/lib/event'
 
 const MEETUP_URL = 'https://www.meetup.com/romandy-cto-meetup-group/'
 const ORANGE = '#C8834A'
@@ -100,6 +102,50 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
             >
               {t('hero.ctaSecondary')}
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Next Event */}
+      <section style={{ backgroundColor: DARK, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+        <div className="max-w-6xl mx-auto px-6 py-16">
+          <div
+            className="rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row gap-8 items-start sm:items-center justify-between"
+            style={{ backgroundColor: DARKER, border: `1px solid ${ORANGE}30` }}
+          >
+            <div className="flex-1">
+              <span
+                className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4 border"
+                style={{ color: ORANGE, borderColor: `${ORANGE}40`, backgroundColor: `${ORANGE}12` }}
+              >
+                {t('nextEvent.badge')}
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase leading-tight mb-4">
+                {t('nextEvent.title')}
+              </h2>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/50">
+                <span className="flex items-center gap-1.5">
+                  <Calendar size={13} style={{ color: ORANGE }} />
+                  {t('nextEvent.date')} · {t('nextEvent.time')}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <MapPin size={13} style={{ color: ORANGE }} />
+                  {t('nextEvent.location')}
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col items-start sm:items-end gap-3 shrink-0">
+              <span className="text-sm font-bold" style={{ color: ORANGE }}>
+                {NEXT_EVENT.spots} {t('nextEvent.spotsLeft')}
+              </span>
+              <Link
+                href={`/${locale}/register`}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-white transition-opacity hover:opacity-90 whitespace-nowrap"
+                style={{ backgroundColor: ORANGE }}
+              >
+                {t('nextEvent.cta')} <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

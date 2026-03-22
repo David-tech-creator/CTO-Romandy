@@ -12,6 +12,17 @@
     "cta": "Join on Meetup",
     "ctaSecondary": "View Events"
   },
+  "nextEvent": {
+    "badge": "Next Event",
+    "title": "AI Leadership: Building the CTO of Tomorrow",
+    "date": "April 24, 2026",
+    "time": "6:30 PM CET",
+    "location": "Geneva, Switzerland (venue TBA)",
+    "description": "An evening of insights on AI integration in tech leadership, building high-performance engineering teams, and networking with CTOs and technology leaders across Romandy.",
+    "spotsLeft": "spots available",
+    "spotsNote": "— secure yours today",
+    "cta": "Register Now"
+  },
   "stats": {
     "members": "Members",
     "events": "Events Hosted",
@@ -41,6 +52,22 @@
     "title": "Recent Events",
     "attendees": "attendees",
     "viewAll": "View All Events on Meetup"
+  },
+  "register": {
+    "back": "Back to home",
+    "title": "Reserve Your Spot",
+    "subtitle": "Fill in your details below to register for this event.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "company": "Company",
+    "jobTitle": "Job Title",
+    "optional": "optional",
+    "submit": "Confirm Registration",
+    "success": "You're registered!",
+    "successSub": "See you at the event. A confirmation will be sent to your email.",
+    "alreadyRegistered": "You're already registered for this event.",
+    "error": "Something went wrong. Please try again."
   },
   "cta": {
     "title": "Ready to Connect?",

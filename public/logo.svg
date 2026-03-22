@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 110" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 95" fill="none" stroke="#C8834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
   <!-- Knife body -->
-  <rect x="8" y="72" width="124" height="30" rx="15" stroke="#C8834A" stroke-width="2.8"/>
+  <rect x="8" y="72" width="84" height="20" rx="10"/>
 
-  <!-- Swiss cross on body -->
-  <line x1="40" y1="80" x2="40" y2="94" stroke="#C8834A" stroke-width="2.8" stroke-linecap="round"/>
-  <line x1="33" y1="87" x2="47" y2="87" stroke="#C8834A" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- Swiss + on body -->
+  <line x1="22" y1="78" x2="22" y2="86"/>
+  <line x1="18" y1="82" x2="26" y2="82"/>
 
-  <!-- Large main blade (left-center, curving up) -->
-  <path d="M 58 72 C 52 60 38 35 44 4 C 52 30 60 52 72 72 Z" stroke="#C8834A" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Main blade (leaf/wing shape sweeping up-left) -->
+  <path d="M 43 72 C 36 55 27 26 32 6 C 44 28 57 54 60 72 Z"/>
 
-  <!-- Small right tool (narrower, straighter) -->
-  <path d="M 80 72 L 87 22 L 94 72" stroke="#C8834A" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Secondary tool (narrow, up-right) -->
+  <path d="M 67 72 L 73 18 L 79 72 Z"/>
 </svg>
