@@ -1,14 +1,13 @@
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowLeft, Users, Calendar, Zap } from 'lucide-react'
 import { JoinForm } from '@/components/JoinForm'
+import { BrandLockup } from '@/components/BrandLockup'
 
 const ORANGE = '#C8834A'
 const DARK = '#2D2D2D'
 const DARKER = '#252525'
-const CARD = '#333333'
 
 export default function JoinPage({ params: { locale } }: { params: { locale: string } }) {
   unstable_setRequestLocale(locale)
@@ -17,22 +16,20 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
   return (
     <div className="min-h-screen" style={{ backgroundColor: DARK }}>
       <div className="max-w-5xl mx-auto px-6 py-12">
+
         <Link
           href={`/${locale}`}
-          className="inline-flex items-center gap-2 text-sm mb-10 transition-colors"
-          style={{ color: 'rgba(255,255,255,0.5)' }}
+          className="inline-flex items-center gap-2 text-sm mb-10 text-white/40 hover:text-white transition-colors"
         >
           <ArrowLeft size={14} /> {t('register.back')}
         </Link>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
+
           {/* Left: info */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <Image src="/logo.png" alt="Romandy CTO" width={40} height={27} />
-              <span className="font-black text-white tracking-widest uppercase text-sm">
-                Romandy <span style={{ color: ORANGE }}>CTO</span>
-              </span>
+            <div className="mb-8">
+              <BrandLockup locale={locale} size="lg" linked={false} />
             </div>
 
             <h1 className="text-4xl font-black text-white uppercase leading-tight mb-4">

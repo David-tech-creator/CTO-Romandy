@@ -1,9 +1,9 @@
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Calendar, MapPin, ArrowRight, Users, ArrowLeft } from 'lucide-react'
 import { EVENTS } from '@/lib/events'
+import { BrandLockup } from '@/components/BrandLockup'
 
 const ORANGE = '#C8834A'
 const DARK = '#2D2D2D'
@@ -19,21 +19,21 @@ export default function EventsPage({ params: { locale } }: { params: { locale: s
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: DARK }}>
-      {/* Header */}
-      <div className="py-16 px-6" style={{ backgroundColor: DARKER }}>
+      {/* Page header */}
+      <div className="py-14 px-6" style={{ backgroundColor: DARKER }}>
         <div className="max-w-6xl mx-auto">
           <Link
             href={`/${locale}`}
-            className="inline-flex items-center gap-2 text-sm mb-8 transition-colors"
-            style={{ color: 'rgba(255,255,255,0.5)' }}
+            className="inline-flex items-center gap-2 text-sm mb-8 text-white/40 hover:text-white transition-colors"
           >
             <ArrowLeft size={14} /> {t('register.back')}
           </Link>
-          <div className="flex items-center gap-4 mb-4">
-            <Image src="/logo.png" alt="Romandy CTO" width={36} height={24} />
-            <h1 className="text-4xl font-black text-white uppercase">{t('events.title')}</h1>
+          <div className="flex items-center gap-6 mb-3">
+            <BrandLockup locale={locale} size="lg" linked={false} />
+            <div className="w-px h-10 bg-white/10" />
+            <h1 className="text-3xl font-black text-white uppercase">{t('events.title')}</h1>
           </div>
-          <p className="text-white/50 max-w-xl">{t('events.subtitle')}</p>
+          <p className="text-white/45 max-w-xl">{t('events.subtitle')}</p>
         </div>
       </div>
 

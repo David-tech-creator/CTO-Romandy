@@ -1,18 +1,16 @@
 import { unstable_setRequestLocale } from 'next-intl/server'
-import { useTranslations } from 'next-intl'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Calendar, MapPin, Users, ArrowLeft, ArrowRight, Clock } from 'lucide-react'
 import { auth } from '@clerk/nextjs/server'
 import { EVENTS } from '@/lib/events'
 import { createClient } from '@supabase/supabase-js'
 import { EventTabs } from '@/components/EventTabs'
+import { BrandLockup } from '@/components/BrandLockup'
 
 const ORANGE = '#C8834A'
 const DARK = '#2D2D2D'
 const DARKER = '#252525'
-const CARD = '#333333'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -33,7 +31,6 @@ export default async function EventPage({
   const event = EVENTS.find((e) => e.slug === slug)
   if (!event) notFound()
 
-  // Fetch attendee count + photos
   const [registrationsRes, photosRes] = await Promise.all([
     supabase
       .from('event_registrations')
@@ -50,7 +47,6 @@ export default async function EventPage({
   const registrationCount = registrationsRes.count ?? 0
   const photos = photosRes.data ?? []
 
-  // Check admin
   const { sessionClaims } = await auth()
   const isAdmin = (sessionClaims?.metadata as { role?: string })?.role === 'admin'
 
@@ -60,25 +56,27 @@ export default async function EventPage({
   return (
     <div className="min-h-screen" style={{ backgroundColor: DARK }}>
       {/* Event header */}
-      <div className="py-16 px-6" style={{ backgroundColor: DARKER }}>
+      <div className="py-14 px-6" style={{ backgroundColor: DARKER }}>
         <div className="max-w-4xl mx-auto">
           <Link
             href={`/${locale}/events`}
-            className="inline-flex items-center gap-2 text-sm mb-8 transition-colors hover:text-white"
-            style={{ color: 'rgba(255,255,255,0.5)' }}
+            className="inline-flex items-center gap-2 text-sm mb-8 text-white/40 hover:text-white transition-colors"
           >
             <ArrowLeft size={14} /> All Events
           </Link>
 
-          <div className="flex items-center gap-3 mb-6">
-            <Image src="/logo.png" alt="Romandy CTO" width={32} height={21} />
+          <div className="flex items-center gap-4 mb-6">
+            <BrandLockup locale={locale} size="md" linked={false} />
             {event.isUpcoming && (
-              <span
-                className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border"
-                style={{ color: ORANGE, borderColor: `${ORANGE}40`, backgroundColor: `${ORANGE}12` }}
-              >
-                Upcoming Event
-              </span>
+              <>
+                <div className="w-px h-8 bg-white/10" />
+                <span
+                  className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border"
+                  style={{ color: ORANGE, borderColor: `${ORANGE}40`, backgroundColor: `${ORANGE}12` }}
+                >
+                  Upcoming Event
+                </span>
+              </>
             )}
           </div>
 
@@ -113,7 +111,6 @@ export default async function EventPage({
         </div>
       </div>
 
-      {/* Tabs: Info / Details / Attendees / Photos */}
       <EventTabs
         locale={locale}
         event={event}

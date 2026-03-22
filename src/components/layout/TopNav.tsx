@@ -3,9 +3,9 @@
 import { useTranslations, useLocale } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
-import { UserButton, SignInButton, Show } from '@clerk/nextjs'
+import { UserButton, Show } from '@clerk/nextjs'
 import { ExternalLink } from 'lucide-react'
+import { BrandLockup } from '@/components/BrandLockup'
 
 const MEETUP_URL = 'https://www.meetup.com/romandy-cto-meetup-group/'
 const ORANGE = '#C8834A'
@@ -24,16 +24,11 @@ export function TopNav() {
   return (
     <header className="sticky top-0 z-50 nav-blur border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href={`/${locale}`} className="flex items-center gap-2.5">
-          <Image src="/logo.png" alt="Romandy CTO" width={72} height={48} />
-          <div className="flex flex-col leading-none">
-            <span className="text-[9px] font-black text-white/70 tracking-[0.2em] uppercase">ROMANDY</span>
-            <span className="text-base font-black text-white tracking-wide leading-none">CTO</span>
-          </div>
-        </Link>
 
-        {/* Links */}
+        {/* Brand lockup */}
+        <BrandLockup locale={locale} size="md" />
+
+        {/* Nav links */}
         <nav className="hidden md:flex items-center gap-6">
           <a href="#about" className="text-sm text-white/60 hover:text-white transition-colors">
             {t('about')}

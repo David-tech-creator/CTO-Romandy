@@ -62,9 +62,17 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
         />
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Logo mark */}
-          <div className="flex justify-center mb-6">
-            <Image src="/logo.png" alt="Romandy CTO" width={300} height={200} priority className="drop-shadow-none" />
+          {/* Large hero brand mark — clip container removes bottom glow gap from PNG */}
+          <div className="flex flex-col items-center mb-6">
+            <div style={{ overflow: 'hidden', height: '220px', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+              <Image src="/logo.png" alt="Romandy CTO" width={600} height={400} priority />
+            </div>
+            <p className="text-base font-black tracking-[0.28em] uppercase mt-1" style={{ color: 'rgba(255,255,255,0.75)' }}>
+              ROMANDY
+            </p>
+            <p className="text-6xl sm:text-7xl font-black text-white tracking-tight leading-none">
+              CTO
+            </p>
           </div>
 
           {/* Badge */}
@@ -405,23 +413,6 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
           </p>
         </div>
       </section>
-
-      {/* ── Footer ────────────────────────────────────────────────────── */}
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.07)', backgroundColor: DARKER }}>
-        <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm" style={{ color: 'rgba(255,255,255,0.35)' }}>
-          <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Romandy CTO" width={22} height={15} />
-            <span className="font-bold text-white/60 tracking-wide text-xs uppercase">{t('footer.rights')}</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <MapPin size={12} style={{ color: ORANGE }} />
-            {t('footer.location')}
-          </div>
-          <a href={MEETUP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-            {t('footer.meetup')} →
-          </a>
-        </div>
-      </footer>
 
     </div>
   )

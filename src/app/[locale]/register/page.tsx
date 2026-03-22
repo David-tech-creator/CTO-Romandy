@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, MapPin, ArrowLeft } from 'lucide-react'
 import { RegisterForm } from '@/components/RegisterForm'
-import { NEXT_EVENT } from '@/lib/event'
+import { UPCOMING_EVENT } from '@/lib/events'
+import { BrandLockup } from '@/components/BrandLockup'
 
 const DARKER = '#252525'
 const CARD = '#333333'
@@ -44,7 +44,9 @@ export default function RegisterPage({ params: { locale } }: { params: { locale:
 
           {/* Left: event info */}
           <div>
-            <Image src="/logo.png" alt="Romandy CTO" width={52} height={42} className="mb-8" />
+            <div className="mb-8">
+              <BrandLockup locale={locale} size="lg" linked={false} />
+            </div>
 
             <span
               className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4 border"
@@ -75,7 +77,7 @@ export default function RegisterPage({ params: { locale } }: { params: { locale:
               style={{ backgroundColor: `${ORANGE}15`, border: `1px solid ${ORANGE}30` }}
             >
               <span style={{ color: ORANGE }} className="font-bold">
-                {NEXT_EVENT.spots} {t('nextEvent.spotsLeft')}
+                {UPCOMING_EVENT.maxSpots} {t('nextEvent.spotsLeft')}
               </span>
               <span className="text-white/40 ml-2">{t('nextEvent.spotsNote')}</span>
             </div>
@@ -90,7 +92,7 @@ export default function RegisterPage({ params: { locale } }: { params: { locale:
             <p className="text-sm text-white/40 mb-8">{t('register.subtitle')}</p>
 
             <RegisterForm
-              eventName={NEXT_EVENT.name}
+              eventName={UPCOMING_EVENT.title}
               locale={locale}
               translations={formTranslations}
             />
