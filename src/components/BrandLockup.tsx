@@ -10,9 +10,9 @@ type Props = {
 // The logo PNG has significant transparent glow padding (~8% top, ~28% bottom, ~5% sides).
 // We render oversized and clip the wrapper to show only the knife content.
 const config = {
-  sm: { imgW: 88,  imgH: 58,  clipH: 32, topOff: 4,  label: 'text-[8px]',  title: 'text-sm'  },
-  md: { imgW: 116, imgH: 77,  clipH: 42, topOff: 6,  label: 'text-[9px]',  title: 'text-lg'  },
-  lg: { imgW: 146, imgH: 97,  clipH: 53, topOff: 7,  label: 'text-[10px]', title: 'text-2xl' },
+  sm: { imgW: 56,  imgH: 37,  clipH: 20, topOff: 3,  label: 'text-[8px]',  title: 'text-sm'  },
+  md: { imgW: 72,  imgH: 48,  clipH: 26, topOff: 4,  label: 'text-[9px]',  title: 'text-lg'  },
+  lg: { imgW: 90,  imgH: 60,  clipH: 33, topOff: 5,  label: 'text-[10px]', title: 'text-2xl' },
 }
 
 export function BrandLockup({ locale = 'en', size = 'md', linked = true }: Props) {

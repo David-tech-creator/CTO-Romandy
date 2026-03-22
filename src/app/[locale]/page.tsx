@@ -55,62 +55,68 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
     <div className="flex flex-col" style={{ backgroundColor: DARK }}>
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-12 px-6 text-center" style={{ backgroundColor: DARKER }}>
+      <section className="relative overflow-hidden pt-8 pb-10 px-6 text-center" style={{ backgroundColor: DARKER }}>
+        {/* Richer hero gradient */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: `radial-gradient(ellipse 70% 55% at 50% 0%, rgba(200,131,74,0.13) 0%, transparent 70%)` }}
+          style={{ background: `radial-gradient(ellipse 80% 60% at 50% -10%, rgba(200,131,74,0.18) 0%, transparent 65%)` }}
+        />
+        {/* Subtle dot grid */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }}
         />
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Hero brand mark — negative marginBottom collapses the PNG's transparent bottom glow */}
-          <div className="flex flex-col items-center mb-6">
+          {/* Logo + brand text */}
+          <div className="flex flex-col items-center mb-4 anim-1">
             <Image
               src="/logo.png"
               alt="Romandy CTO"
-              width={480}
-              height={320}
+              width={240}
+              height={160}
               priority
-              style={{ marginBottom: '-88px' }}
+              style={{ marginBottom: '-45px' }}
             />
-            <p className="text-base font-black tracking-[0.28em] uppercase" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            <p className="text-sm font-black tracking-[0.28em] uppercase" style={{ color: 'rgba(255,255,255,0.65)' }}>
               ROMANDY
             </p>
-            <p className="text-6xl sm:text-7xl font-black text-white tracking-tight leading-none">
+            <p className="text-5xl sm:text-6xl font-black text-white tracking-tight leading-none">
               CTO
             </p>
           </div>
 
           {/* Badge */}
           <span
-            className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5 border"
+            className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4 border anim-2"
             style={{ color: ORANGE, borderColor: `${ORANGE}40`, backgroundColor: `${ORANGE}12` }}
           >
             {t('hero.badge')}
           </span>
 
-          {/* Headline — kept exactly */}
-          <h1 className="text-4xl sm:text-6xl font-black text-white uppercase leading-none tracking-tight mb-4">
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-5xl font-black text-white uppercase leading-none tracking-tight mb-3 anim-3">
             {t('hero.title')}
           </h1>
 
-          {/* Subtitle — kept exactly */}
-          <p className="text-base text-white/50 max-w-xl mx-auto mb-8 leading-relaxed">
+          {/* Subtitle */}
+          <p className="text-sm text-white/50 max-w-md mx-auto mb-5 leading-relaxed anim-4">
             {t('hero.subtitle')}
           </p>
 
-          {/* Primary / secondary CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-5 anim-5">
             <Link
               href={`/${locale}/join`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md font-bold text-white transition-opacity hover:opacity-90"
+              className="btn-glow inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-bold text-white transition-opacity hover:opacity-90"
               style={{ backgroundColor: ORANGE }}
             >
-              {t('nav.joinCommunity')} <ArrowRight size={16} />
+              {t('nav.joinCommunity')} <ArrowRight size={15} />
             </Link>
             <Link
               href={`/${locale}/register`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md font-semibold text-white border transition-colors hover:border-white/40"
-              style={{ borderColor: 'rgba(255,255,255,0.2)' }}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-semibold text-white border transition-colors hover:bg-white/5 hover:border-white/30"
+              style={{ borderColor: 'rgba(255,255,255,0.18)' }}
             >
               {t('hero.ctaEvent')}
             </Link>
@@ -118,16 +124,13 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
 
           {/* Upcoming event strip */}
           <div
-            className="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-3 rounded-xl text-sm"
-            style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}
+            className="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-xl text-sm anim-6 hover:bg-white/[0.07] transition-colors"
+            style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)' }}
           >
-            <span
-              className="text-xs font-bold tracking-widest uppercase"
-              style={{ color: ORANGE }}
-            >
+            <span className="text-xs font-bold tracking-widest uppercase" style={{ color: ORANGE }}>
               {t('nextEvent.badge')}
             </span>
-            <span className="text-white/70">
+            <span className="text-white/60">
               {UPCOMING_EVENT.date} · {UPCOMING_EVENT.location}
             </span>
             <Link
@@ -142,26 +145,26 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
       </section>
 
       {/* ── Who's in the room ─────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ backgroundColor: DARK }}>
+      <section className="py-16 px-6" style={{ backgroundColor: DARK }}>
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-4xl font-black text-white uppercase mb-6">{t('who.title')}</h2>
-          <p className="text-xl text-white/60 leading-relaxed">{t('who.body')}</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-5">{t('who.title')}</h2>
+          <p className="text-lg text-white/55 leading-relaxed">{t('who.body')}</p>
         </div>
       </section>
 
       {/* ── Three ways to connect ─────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ backgroundColor: DARKER }}>
+      <section className="py-16 px-6" style={{ backgroundColor: DARKER }}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <h2 className="text-4xl font-black text-white uppercase mb-4">{t('connect.title')}</h2>
-            <p className="text-white/45 max-w-lg mx-auto">{t('connect.subtitle')}</p>
+            <p className="text-white/45 max-w-2xl mx-auto">{t('connect.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {pillars.map(({ icon: Icon, titleKey, bodyKey, highlight }) => (
               <div
                 key={titleKey}
-                className="rounded-2xl p-8"
+                className="rounded-2xl p-8 card-hover"
                 style={{
                   backgroundColor: highlight ? `${ORANGE}12` : CARD,
                   border: highlight ? `1px solid ${ORANGE}35` : '1px solid rgba(255,255,255,0.07)',
@@ -229,9 +232,9 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
       </section>
 
       {/* ── Topics ────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ backgroundColor: DARKER, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+      <section className="py-16 px-6" style={{ backgroundColor: DARKER, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <h2 className="text-4xl font-black text-white uppercase mb-4">{t('topics.title')}</h2>
             {t('topics.subtitle') && <p className="text-white/45 max-w-lg mx-auto">{t('topics.subtitle')}</p>}
           </div>
@@ -259,9 +262,9 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
       </section>
 
       {/* ── Past events ───────────────────────────────────────────────── */}
-      <section id="events" className="py-24 px-6" style={{ backgroundColor: DARK }}>
+      <section id="events" className="py-16 px-6" style={{ backgroundColor: DARK }}>
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
               <h2 className="text-4xl font-black text-white uppercase mb-2">{t('events.headline')}</h2>
               <p className="text-white/45">{t('events.headlineSub')}</p>
@@ -332,7 +335,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
             { value: t('stats.freeValue'), label: t('stats.free') },
           ].map(({ value, label }) => (
             <div key={label}>
-              <div className="text-3xl sm:text-4xl font-black text-white mb-1">{value}</div>
+              <div className="text-3xl sm:text-4xl font-black stat-value mb-1">{value}</div>
               <div className="text-xs sm:text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>{label}</div>
             </div>
           ))}
@@ -340,9 +343,9 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
       </section>
 
       {/* ── Dual-path join CTA ────────────────────────────────────────── */}
-      <section id="about" className="py-24 px-6" style={{ backgroundColor: DARK }}>
+      <section id="about" className="py-16 px-6" style={{ backgroundColor: DARK }}>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <h2 className="text-4xl font-black text-white uppercase mb-4">{t('joinDual.title')}</h2>
             {t('joinDual.subtitle') && <p className="text-white/50 max-w-md mx-auto">{t('joinDual.subtitle')}</p>}
           </div>

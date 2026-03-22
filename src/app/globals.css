@@ -4,28 +4,21 @@
 
 @layer base {
   :root {
-    --background: 0 0% 17%;        /* #2D2D2D charcoal */
+    --background: 0 0% 17%;
     --foreground: 0 0% 98%;
-
     --card: 0 0% 20%;
     --card-foreground: 0 0% 98%;
-
-    --primary: 26 52% 55%;         /* #C8834A orange */
+    --primary: 26 52% 55%;
     --primary-foreground: 0 0% 98%;
-
     --secondary: 0 0% 22%;
     --secondary-foreground: 0 0% 98%;
-
     --muted: 0 0% 22%;
     --muted-foreground: 0 0% 60%;
-
     --accent: 26 52% 55%;
     --accent-foreground: 0 0% 98%;
-
     --border: 0 0% 25%;
     --input: 0 0% 25%;
     --ring: 26 52% 55%;
-
     --radius: 0.5rem;
   }
 }
@@ -40,35 +33,90 @@
   }
 }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200,131,74,0); }
+  50%       { box-shadow: 0 0 22px 6px rgba(200,131,74,0.30); }
+}
+
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.65; }
+}
+
 @layer components {
-  .brand-orange {
-    color: #C8834A;
+  .brand-orange      { color: #C8834A; }
+  .bg-brand-orange   { background-color: #C8834A; }
+  .border-brand-orange { border-color: #C8834A; }
+
+  /* Cards lift + orange glow border on hover */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 16px 48px -8px rgba(200,131,74,0.14),
+      0 0 0 1px rgba(200,131,74,0.22);
   }
 
-  .bg-brand-orange {
+  /* Primary CTA gentle pulse */
+  .btn-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  /* Fade-in-up animation utilities */
+  .anim-1 { animation: fadeInUp 0.55s ease-out 0.05s both; }
+  .anim-2 { animation: fadeInUp 0.55s ease-out 0.15s both; }
+  .anim-3 { animation: fadeInUp 0.55s ease-out 0.25s both; }
+  .anim-4 { animation: fadeInUp 0.55s ease-out 0.35s both; }
+  .anim-5 { animation: fadeInUp 0.55s ease-out 0.45s both; }
+  .anim-6 { animation: fadeInUp 0.55s ease-out 0.55s both; }
+
+  /* Nav blur */
+  .nav-blur {
+    background-color: rgba(22, 22, 22, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .section-dark  { background-color: #252525; }
+  .section-card  {
+    background-color: #333333;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* Inline nav links — animated orange underline */
+  .nav-link {
+    @apply relative text-sm text-white/60 transition-colors duration-200;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-0 transition-all duration-200;
     background-color: #C8834A;
   }
+  .nav-link:hover { @apply text-white; }
+  .nav-link:hover::after { @apply w-full; }
 
-  .border-brand-orange {
-    border-color: #C8834A;
+  /* Stat number gradient */
+  .stat-value {
+    background: linear-gradient(135deg, #ffffff 30%, #C8834A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .card-hover {
-    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
-  }
-
-  .nav-blur {
-    background-color: rgba(30, 30, 30, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  .section-dark {
-    background-color: #252525;
-  }
-
-  .section-card {
-    background-color: #333333;
-    border: 1px solid rgba(255, 255, 255, 0.07);
+  /* Section fade-in on load */
+  .section-animate {
+    animation: fadeIn 0.7s ease-out both;
   }
 }
