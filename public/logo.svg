@@ -1,14 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 95" fill="none" stroke="#C8834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 155" fill="none" stroke="#C8834A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+
   <!-- Knife body -->
-  <rect x="8" y="72" width="84" height="20" rx="10"/>
+  <rect x="14" y="118" width="132" height="28" rx="14"/>
 
   <!-- Swiss + on body -->
-  <line x1="22" y1="78" x2="22" y2="86"/>
-  <line x1="18" y1="82" x2="26" y2="82"/>
+  <line x1="40" y1="125" x2="40" y2="139"/>
+  <line x1="33" y1="132" x2="47" y2="132"/>
 
-  <!-- Main blade (leaf/wing shape sweeping up-left) -->
-  <path d="M 43 72 C 36 55 27 26 32 6 C 44 28 57 54 60 72 Z"/>
+  <!-- Main blade: large, sweeps upper-left -->
+  <path d="M 84 118 C 90 92 72 42 36 8 C 32 52 52 94 68 118 Z"/>
 
-  <!-- Secondary tool (narrow, up-right) -->
-  <path d="M 67 72 L 73 18 L 79 72 Z"/>
+  <!-- Nail nick at blade base -->
+  <circle cx="75" cy="112" r="4.5" stroke-width="2.2"/>
+
+  <!-- Secondary tool: right side, narrower, rounded top -->
+  <path d="M 98 118 C 100 90 102 55 100 22 C 103 8 120 8 118 22 C 116 58 116 92 118 118 Z"/>
+
 </svg>
