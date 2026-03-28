@@ -2,33 +2,18 @@
 
 import { useRef, useLayoutEffect, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useGLTF, OrbitControls, useTexture } from '@react-three/drei'
+import { useGLTF, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 
-function BB8Model() {
+function RobotModel() {
   const group = useRef<THREE.Group>(null!)
-  const { scene } = useGLTF('/bb8.glb')
-  const texture = useTexture('/bb8-texture.jpg')
+  const { scene } = useGLTF('/robot.glb')
 
-  // Apply texture to all meshes and fix material
-  const patchedScene = useMemo(() => {
-    texture.flipY = false
-    const clone = scene.clone(true)
-    clone.traverse((child) => {
-      if ((child as THREE.Mesh).isMesh) {
-        const mesh = child as THREE.Mesh
-        const mat = new THREE.MeshStandardMaterial({
-          map: texture,
-          roughness: 0.45,
-          metalness: 0.25,
-        })
-        mesh.material = mat
-      }
-    })
-    return clone
-  }, [scene, texture])
+  const clonedScene = useMemo(() => scene.clone(true), [scene])
 
-  // Auto-scale and center
+  const origin = useRef({ x: 0, y: 0, z: 0 })
+
+  // Auto-scale and center — fit to 2.8 unit cube, centered on screen
   useLayoutEffect(() => {
     if (!group.current) return
     const box = new THREE.Box3().setFromObject(group.current)
@@ -37,29 +22,31 @@ function BB8Model() {
     const maxDim = Math.max(size.x, size.y, size.z)
     const scale = 2.8 / maxDim
     group.current.scale.setScalar(scale)
-    group.current.position.set(
-      -center.x * scale,
-      -center.y * scale,
-      -center.z * scale,
-    )
-  }, [patchedScene])
+    const ox = -center.x * scale
+    const oy = -center.y * scale
+    const oz = -center.z * scale
+    origin.current = { x: ox, y: oy, z: oz }
+    group.current.position.set(ox, oy, oz)
+  }, [clonedScene])
 
-  // Rotate + float + wobble
   const clock = useRef(0)
+
   useFrame((_, delta) => {
     clock.current += delta
-    if (group.current) {
-      group.current.rotation.y += delta * 0.55
-      // Gentle float up/down
-      group.current.position.y = -0.15 + Math.sin(clock.current * 1.2) * 0.12
-      // Slight side tilt
-      group.current.rotation.z = Math.sin(clock.current * 0.8) * 0.06
-    }
+    if (!group.current) return
+
+    const t = clock.current
+    // Gentle idle float
+    group.current.position.y = origin.current.y + Math.sin(t * 1.1) * 0.1
+    // Slow side-to-side sway
+    group.current.rotation.y = Math.sin(t * 0.6) * 0.25
+    // Very slight tilt
+    group.current.rotation.z = Math.sin(t * 0.4) * 0.04
   })
 
   return (
     <group ref={group}>
-      <primitive object={patchedScene} />
+      <primitive object={clonedScene} />
     </group>
   )
 }
@@ -68,20 +55,20 @@ export default function BB8Mascot() {
   return (
     <div style={{ width: '100%', height: 440, maxWidth: 480 }}>
       <Canvas
-        camera={{ position: [0, 0.5, 5], fov: 42 }}
+        camera={{ position: [0, 0, 5], fov: 42 }}
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
         {/* Ambient base */}
-        <ambientLight intensity={0.55} />
+        <ambientLight intensity={0.6} />
         {/* Key light — warm white, top-left */}
         <directionalLight position={[-4, 6, 3]} intensity={2.0} color="#fff5e8" />
         {/* Fill — neutral, right */}
         <directionalLight position={[5, 2, -2]} intensity={0.7} color="#ffffff" />
         {/* Amber rim from below */}
-        <pointLight position={[0, -4, 2]} intensity={0.6} color="#c8834a" />
+        <pointLight position={[0, -4, 2]} intensity={0.8} color="#c8834a" />
 
-        <BB8Model />
+        <RobotModel />
 
         <OrbitControls
           enableZoom={false}
@@ -94,4 +81,4 @@ export default function BB8Mascot() {
   )
 }
 
-useGLTF.preload('/bb8.glb')
+useGLTF.preload('/robot.glb')
