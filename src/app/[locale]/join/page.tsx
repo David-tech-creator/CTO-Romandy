@@ -16,23 +16,7 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
   return (
     <div className="min-h-screen" style={{ backgroundColor: DARK }}>
 
-      {/* Full-bleed hero image */}
-      <div style={{ width: '100%', height: 340, overflow: 'hidden', position: 'relative' }}>
-        <img
-          src="/ctomain11.webp"
-          alt=""
-          aria-hidden="true"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }}
-        />
-        {/* Bottom fade into page background */}
-        <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, height: 120,
-          background: `linear-gradient(to bottom, transparent, ${DARK})`,
-          pointerEvents: 'none',
-        }} />
-      </div>
-
-      <div className="max-w-5xl mx-auto px-6 pb-12" style={{ marginTop: '-2rem' }}>
+      <div className="max-w-5xl mx-auto px-6 pt-10 pb-0">
 
         <Link
           href={`/${locale}`}
@@ -85,6 +69,24 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
           </div>
         </div>
       </div>
+
+      {/* Image — natural size, centered, flush below content */}
+      <div className="flex justify-center" style={{ marginTop: '3rem' }}>
+        <img
+          src="/ctomain11.webp"
+          alt=""
+          aria-hidden="true"
+          style={{
+            width: 768,
+            height: 432,
+            maxWidth: '100%',
+            display: 'block',
+            borderRadius: '12px 12px 0 0',
+            opacity: 0.85,
+          }}
+        />
+      </div>
+
     </div>
   )
 }
