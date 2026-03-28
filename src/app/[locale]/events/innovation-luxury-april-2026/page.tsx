@@ -510,18 +510,8 @@ export default async function AgenticCommercePage({
             but the boutique<br />
             remains the destination.&rdquo;
           </blockquote>
-          <p className="text-sm mb-12" style={{ color: 'rgba(255,255,255,0.32)', paddingLeft: '1.5rem' }}>
+          <p className="text-sm mb-16" style={{ color: 'rgba(255,255,255,0.32)', paddingLeft: '1.5rem' }}>
             — Pedro López-Belmonte, Technology Strategist · Top Luxury Speaker of the World 2026
-          </p>
-
-          <blockquote
-            className="text-base sm:text-lg font-semibold text-white/60 leading-relaxed mb-4 italic"
-            style={{ borderLeft: `2px solid rgba(200,131,74,0.25)`, paddingLeft: '1.5rem' }}
-          >
-            &ldquo;Companies have spent decades refining consumer journeys, fine-tuning every click, scroll, and tap. But in the era of agentic commerce, the consumer no longer travels alone. Their digital proxies now navigate the commerce ecosystem, making millions of microdecisions daily.&rdquo;
-          </blockquote>
-          <p className="text-sm mb-16" style={{ color: 'rgba(255,255,255,0.28)', paddingLeft: '1.5rem' }}>
-            — Becca Coggins, Senior Partner &amp; Global Leader, Retail &amp; Consumer Practices
           </p>
 
           <p className="text-lg leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.62)', maxWidth: '42rem' }}>
@@ -771,11 +761,14 @@ export default async function AgenticCommercePage({
             >
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="shrink-0">
-                  <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black select-none"
-                    style={{ backgroundColor: `${ORANGE}28`, color: ORANGE }}
-                  >
-                    PL
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden" style={{ border: `1px solid ${ORANGE}40` }}>
+                    <img
+                      src="/pedro.png"
+                      alt="Pedro López-Belmonte"
+                      width={64}
+                      height={64}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%) contrast(1.05)' }}
+                    />
                   </div>
                 </div>
                 <div className="flex-1">
@@ -831,11 +824,14 @@ export default async function AgenticCommercePage({
             >
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="shrink-0">
-                  <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black select-none"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.55)' }}
-                  >
-                    FD
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.12)' }}>
+                    <img
+                      src="/frederic.png"
+                      alt="Frédéric Desmaison"
+                      width={64}
+                      height={64}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%) contrast(1.05)' }}
+                    />
                   </div>
                 </div>
                 <div className="flex-1">
