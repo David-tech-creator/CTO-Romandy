@@ -143,7 +143,7 @@ function AgentNetworkSVG() {
       viewBox="0 0 480 380"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ width: '100%', maxWidth: 480, height: 'auto' }}
+      style={{ width: '100%', maxWidth: 580, height: 'auto' }}
       aria-hidden="true"
     >
       {/* Background rings */}
@@ -161,7 +161,7 @@ function AgentNetworkSVG() {
         <circle cx="1" cy="1" r="0.8" fill="rgba(255,255,255,0.04)" />
       </pattern>
       <clipPath id="robot-clip">
-        <circle cx="240" cy="190" r="36" />
+        <circle cx="240" cy="190" r="52" />
       </clipPath>
       <rect width="480" height="380" fill="url(#dots)" />
 
@@ -215,18 +215,19 @@ function AgentNetworkSVG() {
 
       {/* ── Agent node (center, glowing) ── */}
       {/* outer glow pulse */}
-      <circle cx="240" cy="190" r="56" fill="rgba(200,131,74,0.08)" className="ac-glow" />
+      <circle cx="240" cy="190" r="72" fill="rgba(200,131,74,0.08)" className="ac-glow" />
+      <circle cx="240" cy="190" r="72" fill="rgba(200,131,74,0.06)" className="ac-glow ac-ring-2" />
       {/* mid ring */}
-      <circle cx="240" cy="190" r="44" fill={DARKER} stroke="rgba(200,131,74,0.50)" strokeWidth="1.5" />
+      <circle cx="240" cy="190" r="58" fill={DARKER} stroke="rgba(200,131,74,0.55)" strokeWidth="2" />
       {/* robot image clipped to circle */}
       <image
         href="/agentic6.jpg"
-        x="204" y="154" width="72" height="72"
+        x="188" y="138" width="104" height="104"
         clipPath="url(#robot-clip)"
         preserveAspectRatio="xMidYMid slice"
       />
       {/* amber ring over image */}
-      <circle cx="240" cy="190" r="36" fill="none" stroke={ORANGE} strokeWidth="1.5" opacity="0.6" />
+      <circle cx="240" cy="190" r="52" fill="none" stroke={ORANGE} strokeWidth="2" opacity="0.7" />
 
       {/* ── Endpoint nodes ── */}
       {/* Brand Agent */}
