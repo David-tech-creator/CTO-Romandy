@@ -836,16 +836,13 @@ export default async function AgenticCommercePage({
       {/* ══════════════════════════════════════════════════════════════ */}
       {/* DISCUSSION THEMES                                             */}
       {/* ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 relative overflow-hidden" style={{ backgroundColor: DARK }}>
-        <div className="orb orb-orange orb-md" style={{ position: 'absolute', bottom: -80, right: -80, opacity: 0.11 }} />
-        <div className="orb orb-orange orb-sm" style={{ position: 'absolute', top: 40, left: '5%', opacity: 0.08 }} />
-
+      <section className="py-20 px-6 relative" style={{ backgroundColor: DARK }}>
         <div className="max-w-6xl mx-auto">
-          {/* 2-column sticky layout: pinned heading left, cards scrolling right */}
-          <div className="grid lg:grid-cols-[260px_1fr] gap-16 items-start">
+          {/* Mobile: stacked. Desktop: 2-column sticky layout */}
+          <div className="grid lg:grid-cols-[260px_1fr] gap-8 lg:gap-16 items-start">
 
-            {/* Left — sticky section label */}
-            <div style={{ position: 'sticky', top: '6rem', alignSelf: 'start' }}>
+            {/* Left — sticky section label (desktop only) */}
+            <div className="lg:sticky lg:top-24" style={{ alignSelf: 'start' }}>
               <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: ORANGE }}>
                 Discussion Themes
               </p>
