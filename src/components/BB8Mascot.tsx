@@ -2,18 +2,43 @@
 
 import { useRef, useLayoutEffect, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useGLTF, OrbitControls } from '@react-three/drei'
+import { useGLTF, OrbitControls, Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
 function RobotModel() {
   const group = useRef<THREE.Group>(null!)
   const { scene } = useGLTF('/robot.glb')
 
-  const clonedScene = useMemo(() => scene.clone(true), [scene])
+  // Clone and override materials to be lighter
+  const clonedScene = useMemo(() => {
+    const clone = scene.clone(true)
+    clone.traverse((child) => {
+      if ((child as THREE.Mesh).isMesh) {
+        const mesh = child as THREE.Mesh
+        const original = Array.isArray(mesh.material)
+          ? mesh.material[0]
+          : mesh.material
+        const orig = original as THREE.MeshStandardMaterial
+        const mat = new THREE.MeshStandardMaterial({
+          color: orig.color ?? new THREE.Color(0.6, 0.6, 0.6),
+          roughness: Math.min((orig.roughness ?? 0.5) * 0.6, 0.5),
+          metalness: orig.metalness ?? 0.3,
+          emissive: orig.emissive ?? new THREE.Color(0, 0, 0),
+          emissiveIntensity: 0.15,
+          map: orig.map ?? null,
+        })
+        // Brighten dark colors
+        const hsl = { h: 0, s: 0, l: 0 }
+        mat.color.getHSL(hsl)
+        if (hsl.l < 0.25) mat.color.setHSL(hsl.h, hsl.s, 0.35)
+        mesh.material = mat
+      }
+    })
+    return clone
+  }, [scene])
 
   const origin = useRef({ x: 0, y: 0, z: 0 })
 
-  // Auto-scale and center — fit to 2.8 unit cube, centered on screen
   useLayoutEffect(() => {
     if (!group.current) return
     const box = new THREE.Box3().setFromObject(group.current)
@@ -34,13 +59,9 @@ function RobotModel() {
   useFrame((_, delta) => {
     clock.current += delta
     if (!group.current) return
-
     const t = clock.current
-    // Gentle idle float
     group.current.position.y = origin.current.y + Math.sin(t * 1.1) * 0.1
-    // Slow side-to-side sway
     group.current.rotation.y = Math.sin(t * 0.6) * 0.25
-    // Very slight tilt
     group.current.rotation.z = Math.sin(t * 0.4) * 0.04
   })
 
@@ -59,14 +80,13 @@ export default function BB8Mascot() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
-        {/* Ambient base — bright so dark materials stay visible */}
-        <ambientLight intensity={2.5} />
-        {/* Key light — warm white, top-left */}
-        <directionalLight position={[-4, 6, 3]} intensity={5.0} color="#fff5e8" />
-        {/* Fill — front-right */}
-        <directionalLight position={[4, 2, 4]} intensity={3.0} color="#ffffff" />
-        {/* Amber accent from below */}
-        <pointLight position={[0, -3, 3]} intensity={2.0} color="#c8834a" />
+        {/* Environment map — key to making dark metallic materials look lit */}
+        <Environment preset="studio" />
+
+        <ambientLight intensity={3.0} />
+        <directionalLight position={[-3, 5, 4]} intensity={4.0} color="#ffffff" />
+        <directionalLight position={[4, 2, 4]} intensity={3.0} color="#fff5e8" />
+        <pointLight position={[0, -2, 4]} intensity={2.0} color="#c8834a" />
 
         <RobotModel />
 
