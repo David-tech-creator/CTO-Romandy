@@ -15,7 +15,7 @@ export const metadata = {
     siteName: 'Romandy CTO',
     images: [
       {
-        url: '/logo.png',
+        url: '/OG image.png',
         width: 1536,
         height: 1024,
         alt: 'Romandy CTO',
@@ -27,7 +27,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Romandy CTO',
     description: 'The community for CTOs and technology leaders in Romandy, Switzerland.',
-    images: ['/logo.png'],
+    images: ['/OG image.png'],
   },
 }
 
