@@ -39,7 +39,7 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
               {t('join.subtitle')}
             </p>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 mb-8">
               {[
                 { icon: Calendar, text: t('join.benefit1') },
                 { icon: Zap, text: t('join.benefit2') },
@@ -56,14 +56,11 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Right: image (desktop) + form */}
-          <div className="flex flex-col gap-5">
             {/* Editorial image */}
             <div
               className="hidden md:block rounded-xl overflow-hidden"
-              style={{ border: '1px solid rgba(200,131,74,0.15)', height: 220 }}
+              style={{ border: '1px solid rgba(200,131,74,0.15)', height: 240 }}
             >
               <img
                 src="/ctomain1.jpeg"
@@ -72,13 +69,14 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
               />
             </div>
-            {/* Form */}
-            <div
-              className="rounded-2xl p-5 sm:p-8"
-              style={{ backgroundColor: DARKER, border: `1px solid rgba(255,255,255,0.08)` }}
-            >
-              <JoinForm locale={locale} />
-            </div>
+          </div>
+
+          {/* Right: form */}
+          <div
+            className="rounded-2xl p-5 sm:p-8"
+            style={{ backgroundColor: DARKER, border: `1px solid rgba(255,255,255,0.08)` }}
+          >
+            <JoinForm locale={locale} />
           </div>
         </div>
       </div>
