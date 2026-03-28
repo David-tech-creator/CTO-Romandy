@@ -73,12 +73,12 @@ export default function JoinPage({ params: { locale } }: { params: { locale: str
       {/* Image — natural size, centered, flush below content */}
       <div className="flex justify-center" style={{ marginTop: '3rem' }}>
         <img
-          src="/ctomain11.webp"
+          src="/og-image.png"
           alt=""
           aria-hidden="true"
           style={{
             width: 768,
-            height: 432,
+            height: 512,
             maxWidth: '100%',
             display: 'block',
             borderRadius: '12px',
