@@ -11,6 +11,13 @@ export function welcomeEmail({
     ? `Bienvenue dans la communauté Romandy CTO, ${firstName}`
     : `Welcome to Romandy CTO, ${firstName}`
 
+  // Inline SVG icons — minimal, stroke-based, email-safe
+  const iconCalendar = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8834A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`
+
+  const iconUsers = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8834A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+
+  const iconBook = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8834A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`
+
   const html = `<!DOCTYPE html>
 <html lang="${locale}">
 <head>
@@ -24,7 +31,7 @@ export function welcomeEmail({
     <tr><td align="center">
       <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
 
-        <!-- Logo row -->
+        <!-- Logo -->
         <tr>
           <td style="padding:0 0 28px 0;">
             <span style="font-size:10px;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);">ROMANDY</span><br/>
@@ -32,32 +39,30 @@ export function welcomeEmail({
           </td>
         </tr>
 
-        <!-- Hero image — full bleed, rounded top -->
+        <!-- Hero image -->
         <tr>
           <td style="padding:0;line-height:0;">
-            <img src="https://www.ctoromandy.ch/og-image.jpg"
+            <img src="https://www.ctoromandy.ch/og-image1.jpg"
               width="600" alt="Romandy CTO"
-              style="width:100%;max-width:600px;height:auto;display:block;border-radius:16px 16px 0 0;opacity:0.92;" />
+              style="width:100%;max-width:600px;height:auto;display:block;border-radius:16px 16px 0 0;" />
           </td>
         </tr>
 
-        <!-- Main card — flush under image -->
+        <!-- Card -->
         <tr>
           <td style="background:#1A1A1A;border-radius:0 0 16px 16px;border:1px solid rgba(255,255,255,0.07);border-top:none;">
-
-            <!-- Orange top bar -->
-            <div style="height:3px;background:linear-gradient(to right,#C8834A,#E0A070);border-radius:0;"></div>
+            <div style="height:3px;background:linear-gradient(to right,#C8834A,#E0A070);"></div>
 
             <div style="padding:40px 40px 48px;">
 
               <!-- Greeting -->
-              <p style="margin:0 0 6px 0;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C8834A;">
+              <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C8834A;">
                 ${isFr ? 'Bienvenue' : 'Welcome'}
               </p>
-              <h1 style="margin:0 0 20px 0;font-size:34px;font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:-0.02em;line-height:1.1;">
+              <h1 style="margin:0 0 20px;font-size:36px;font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:-0.02em;line-height:1.1;">
                 ${firstName}.
               </h1>
-              <p style="margin:0 0 36px 0;font-size:15px;color:rgba(255,255,255,0.55);line-height:1.75;">
+              <p style="margin:0 0 36px;font-size:15px;color:rgba(255,255,255,0.5);line-height:1.75;">
                 ${isFr
                   ? `Vous faites maintenant partie de la communauté Romandy CTO — un réseau de plus de 500 CTOs et leaders technologiques en Romandie.`
                   : `You're now part of Romandy CTO — a network of 500+ CTOs and technology leaders across Romandy, Switzerland.`}
@@ -66,71 +71,82 @@ export function welcomeEmail({
               <!-- Divider -->
               <div style="height:1px;background:rgba(255,255,255,0.06);margin:0 0 32px;"></div>
 
-              <!-- What's next label -->
-              <p style="margin:0 0 20px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);">
+              <!-- What's next -->
+              <p style="margin:0 0 20px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);">
                 ${isFr ? 'Ce qui vous attend' : "What's next"}
               </p>
 
-              <!-- 3 benefits — single-column, clean -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
+              <!-- Benefit 1 -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
                 <tr>
-                  <td style="padding:14px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;margin-bottom:8px;">
-                    <p style="margin:0 0 3px;font-size:13px;font-weight:700;color:#ffffff;">
-                      ${isFr ? '📅  Événements mensuels' : '📅  Monthly events'}
-                    </p>
-                    <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.4);line-height:1.55;">
-                      ${isFr
-                        ? 'Soirées en présentiel, soignées — keynotes, panels et discussions ouvertes.'
-                        : 'Curated in-person evenings — keynotes, panels, and open discussion.'}
-                    </p>
+                  <td style="padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;">
+                    <table cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding-right:12px;vertical-align:middle;">${iconCalendar}</td>
+                        <td>
+                          <p style="margin:0 0 2px;font-size:13px;font-weight:700;color:#ffffff;letter-spacing:0.01em;">
+                            ${isFr ? 'Événements mensuels' : 'Monthly events'}
+                          </p>
+                          <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.35);line-height:1.55;">
+                            ${isFr ? 'Soirées en présentiel, soignées — toujours gratuites.' : 'Curated in-person evenings — always free.'}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
 
-              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
+              <!-- Benefit 2 -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
                 <tr>
-                  <td style="padding:14px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;">
-                    <p style="margin:0 0 3px;font-size:13px;font-weight:700;color:#ffffff;">
-                      ${isFr ? '💬  Réseau privé' : '💬  Private network'}
-                    </p>
-                    <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.4);line-height:1.55;">
-                      ${isFr
-                        ? '500+ pairs. Posez une question, recevez des réponses de praticiens expérimentés.'
-                        : '500+ peers. Ask a question, get answers from experienced practitioners.'}
-                    </p>
+                  <td style="padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;">
+                    <table cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding-right:12px;vertical-align:middle;">${iconUsers}</td>
+                        <td>
+                          <p style="margin:0 0 2px;font-size:13px;font-weight:700;color:#ffffff;letter-spacing:0.01em;">
+                            ${isFr ? 'Réseau privé' : 'Private network'}
+                          </p>
+                          <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.35);line-height:1.55;">
+                            ${isFr ? '500+ pairs. Des réponses de praticiens expérimentés.' : '500+ peers. Real answers from experienced practitioners.'}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
 
+              <!-- Benefit 3 -->
               <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:36px;">
                 <tr>
-                  <td style="padding:14px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;">
-                    <p style="margin:0 0 3px;font-size:13px;font-weight:700;color:#ffffff;">
-                      ${isFr ? '📚  Connaissances partagées' : '📚  Shared knowledge'}
-                    </p>
-                    <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.4);line-height:1.55;">
-                      ${isFr
-                        ? 'Résumés et ressources de chaque événement, partagés avec toute la communauté.'
-                        : 'Recaps and resources from every event, shared with the full community.'}
-                    </p>
+                  <td style="padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;">
+                    <table cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding-right:12px;vertical-align:middle;">${iconBook}</td>
+                        <td>
+                          <p style="margin:0 0 2px;font-size:13px;font-weight:700;color:#ffffff;letter-spacing:0.01em;">
+                            ${isFr ? 'Connaissances partagées' : 'Shared knowledge'}
+                          </p>
+                          <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.35);line-height:1.55;">
+                            ${isFr ? 'Résumés et ressources de chaque événement.' : 'Recaps and resources from every event.'}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
 
               <!-- CTA -->
-              <table cellpadding="0" cellspacing="0" width="100%">
-                <tr>
-                  <td>
-                    <a href="https://www.ctoromandy.ch/${locale}/register"
-                      style="display:block;text-align:center;background:#C8834A;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;padding:15px 32px;border-radius:9px;text-transform:uppercase;letter-spacing:0.07em;">
-                      ${isFr ? 'Réserver ma place →' : 'Reserve my spot →'}
-                    </a>
-                    <p style="margin:10px 0 0;font-size:11px;text-align:center;color:rgba(255,255,255,0.2);">
-                      ${isFr ? 'Prochain événement · Toujours gratuit' : 'Next event · Always free'}
-                    </p>
-                  </td>
-                </tr>
-              </table>
+              <a href="https://www.ctoromandy.ch/${locale}/register"
+                style="display:block;text-align:center;background:#C8834A;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;padding:15px 32px;border-radius:9px;text-transform:uppercase;letter-spacing:0.07em;">
+                ${isFr ? 'Réserver ma place →' : 'Reserve my spot →'}
+              </a>
+              <p style="margin:10px 0 0;font-size:11px;text-align:center;color:rgba(255,255,255,0.2);">
+                ${isFr ? 'Prochain événement · Toujours gratuit' : 'Next event · Always free'}
+              </p>
 
             </div>
           </td>
