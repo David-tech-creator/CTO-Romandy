@@ -190,7 +190,7 @@ function AgentNetworkSVG() {
         strokeDasharray="5 5" className="ac-flow" />
 
       {/* ── Data-packet moving dots ── */}
-      {/* These are purely decorative — animated via CSS motion path workaround: 
+      {/* These are purely decorative — animated via CSS motion path workaround:
           we use a circle + animateMotion (SVG SMIL, supported in all modern browsers) */}
       <circle r="3" fill={ORANGE} opacity="0.8">
         <animateMotion dur="2s" repeatCount="indefinite"
@@ -267,6 +267,130 @@ export default async function AgenticCommercePage({
   params: { locale: string }
 }) {
   unstable_setRequestLocale(locale)
+  const isFr = locale === 'fr'
+
+  const T = {
+    // Navigation
+    allEvents: isFr ? 'Tous les événements' : 'All Events',
+
+    // Hero
+    dateLabel: isFr ? '30 avril 2026' : 'April 30, 2026',
+    eveningSession: isFr ? 'Romandy CTO — Soirée' : 'Romandy CTO — Evening Session',
+    luxurySubtitle: isFr ? '& l\'industrie du luxe' : '& the Luxury Industry',
+    heroPara1: isFr
+      ? 'Les agents IA peuvent désormais rechercher des produits, négocier des prix et finaliser des achats de manière autonome — sans que le consommateur visite jamais votre site. Un basculement de 3 à 5 milliers de milliards de dollars est déjà en cours.'
+      : 'AI agents can now research products, negotiate prices, and complete purchases autonomously — without a consumer ever visiting your site. A $3–5 trillion shift is already underway.',
+    heroPara2: isFr
+      ? 'Pour le luxe, les enjeux sont différents. Quand un agent devient le client, que devient l\'histoire, l\'émotion et la connexion humaine qui rendent une marque irremplaçable ?'
+      : 'For luxury, the stakes are different. When an agent becomes the customer, what happens to the story, the emotion, and the human connection that make a brand irreplaceable?',
+    heroDate: isFr ? 'Mercredi 30 avril 2026' : 'Wednesday, April 30, 2026',
+    heroTime: isFr ? '19h00 CET — Portes ouvertes dès 19h' : '7:00 PM CET — Doors open at 19:00',
+    heroLocation: 'Antaes, GBC – Avenue des Morgines 12, Petit-Lancy',
+    heroSpots: (spotsLeft: number) => isFr ? `${spotsLeft} places restantes · Entrée gratuite` : `${spotsLeft} spots remaining · Free admission`,
+    reserveSpot: isFr ? 'Réserver ma place' : 'Reserve Your Spot',
+    freeAdmission: isFr ? 'Gratuit · Inscription requise' : 'Free · Registration required',
+
+    // Speakers section
+    theSpeakers: isFr ? 'Les Intervenants' : 'The Speakers',
+    twoPerspectives: isFr ? 'Deux perspectives, une soirée' : 'Two perspectives, one evening',
+    pedroLens: isFr ? 'Perspective CTO & Architecture' : 'CTO & Architecture Lens',
+    pedroRole: isFr ? 'Stratège Technologique · Ancien Responsable Innovation, Groupe Richemont' : 'Technology Strategist · Former Innovation Lead, Richemont Group',
+    pedroBio1: isFr
+      ? 'Pendant plus de douze ans chez Richemont — maison de Cartier, Vacheron Constantin, IWC et d\'autres Maisons — Pedro a dirigé des initiatives d\'innovation technologique axées sur l\'identité numérique, la blockchain et la traçabilité des produits, contribuant à sécuriser des héritages centenaires tout en les préparant au paradigme numérique.'
+      : 'For over twelve years at Richemont — home to Cartier, Vacheron Constantin, IWC, and other Maisons — Pedro led technology innovation initiatives focused on digital identity, blockchain, and product traceability, helping secure centuries-old legacies while preparing them for the digital paradigm.',
+    pedroBio2: isFr
+      ? 'Nommé parmi les Top Luxury Speakers of the World 2026 par la Chambre de Commerce du Luxe Mondial aux côtés de 59 pairs internationaux. Ses travaux sur le commerce agentique — y compris des expériences directes utilisant des agents IA dans le commerce de luxe — constituent le fil directeur de cette soirée.'
+      : 'Named among the Top Luxury Speakers of the World 2026 by the World Luxury Chamber of Commerce alongside 59 global peers. His work on agentic commerce — including first-hand experiments using AI agents to navigate luxury retail — forms the backbone of this evening\'s discussion.',
+    fredericLens: isFr ? 'Perspective Stratégie & Technologie' : 'Strategy & Technology Lens',
+    fredericRole: isFr ? 'Directeur Technologique & Conseiller Senior' : 'Technology Director & Senior Advisor',
+    fredericBio1: isFr
+      ? 'Dirigeant digital passionné alliant vision stratégique et exécution de haute qualité, Frédéric place les personnes et la technologie au service des clients finaux. Il va au-delà de l\'architecture technique pour poser la question essentielle : est-ce le bon choix pour l\'entreprise et le client ?'
+      : 'A passionate digital executive who combines strategic vision with high-quality execution, Frédéric brings people and technology to serve end customers. He looks beyond the technical architecture to ask the harder question: is this the right move for the business and the customer?',
+    fredericBio2: isFr
+      ? 'Sa perspective ancre la discussion dans la réalité opérationnelle — les défis de la transition, les attentes des consommateurs de luxe et le leadership nécessaire pour naviguer un changement de paradigme sans perdre ce qui rend une marque irremplaçable.'
+      : 'His perspective grounds the discussion in operational reality — the challenges of transition, the expectations of luxury consumers, and the leadership required to navigate a paradigm shift without losing what makes a brand irreplaceable.',
+
+    // Inflection Point
+    inflectionPoint: isFr ? 'Le Point d\'Inflexion' : 'The Inflection Point',
+    inflectionPara1: isFr
+      ? 'Pedro a utilisé trois agents IA pour acheter un manteau de luxe. Ils ont excellé dans la découverte — puis se sont heurtés à un mur. Données produits incomplètes. Pas d\'intégrations commerce directes. Pas de confiance. Il a fini par faire ce qu\'il a toujours fait : se rendre en boutique.'
+      : 'Pedro used three AI agents to buy a luxury coat. They excelled at discovery — then hit a wall. Incomplete product data. No direct commerce integrations. No trust. He ended up doing what he\'s always done: visiting the boutique.',
+    inflectionPara2: isFr
+      ? 'Cet écart entre promesse et réalité est précisément là où les leaders technologiques du luxe doivent agir. Le commerce agentique n\'arrive pas — il est déjà là, fragmenté, en attente d\'une architecture adaptée.'
+      : 'That gap between promise and reality is exactly where technology leaders in luxury must act. Agentic commerce isn\'t coming — it\'s already here, fragmented, and waiting for the right architecture.',
+    stat1Label: isFr
+      ? 'Opportunité mondiale du commerce agentique d\'ici 2030 — 1 000 Mrd$ du seul e-commerce B2C américain'
+      : 'Global agentic commerce opportunity by 2030 — $1T from US B2C retail alone',
+    stat2Label: isFr
+      ? 'des consommateurs utilisent désormais l\'IA pour leurs recherches sur internet — contre presque zéro en 2022'
+      : 'of consumers now use AI when searching the internet — up from near zero in 2022',
+    stat3Label: isFr
+      ? 'Agent-vers-site · Agent-vers-agent · Agent courtier · Trois modèles qui émergent simultanément'
+      : 'Agent-to-site · Agent-to-agent · Brokered agent · All emerging simultaneously',
+    statSource1: isFr ? 'Recherche sectorielle, 2025' : 'Industry research, 2025',
+    statSource2: isFr ? 'Recherche sectorielle, 2025' : 'Industry research, 2025',
+    statSource3: isFr ? 'Comment le commerce circule aujourd\'hui' : 'How commerce flows today',
+
+    // The Evening
+    theEvening: isFr ? 'La Soirée' : 'The Evening',
+    howNightUnfolds: isFr ? 'Comment se déroule la soirée' : 'How the night unfolds',
+    timeline1Label: isFr ? 'Introduction au Commerce Agentique' : 'Introduction to Agentic Commerce',
+    timeline1Sub: isFr
+      ? 'Une courte présentation pour mettre en contexte l\'état actuel du commerce agentique'
+      : 'A short framing presentation to level-set the room on where we are today',
+    timeline2Label: isFr ? 'Discussion en panel & Questions ouvertes' : 'Panel Discussion & Open Q&A',
+    timeline2Sub: isFr
+      ? 'Architecture · Stratégie · Le paradoxe du luxe. Ouvert, conversationnel, animé par des praticiens — c\'est la salle qui guide la discussion.'
+      : 'Architecture · Strategy · The luxury paradox. Open, conversational, practitioner-led — the room drives the conversation.',
+    timeline3Label: isFr ? 'Cocktail & Networking' : 'Drinks & Networking',
+    timeline3Sub: isFr ? 'Continuer la conversation de manière informelle' : 'Continue the conversation informally',
+    twoPerspectivesPanel: isFr ? 'Deux perspectives, un panel' : 'Two perspectives, one panel',
+    pedroLensText: isFr
+      ? 'La réalité de l\'infrastructure : protocoles (MCP, A2A, ACP), patterns de conception, architecture de données prête pour les agents, gestion des identités et rôle de la blockchain & des passeports produits numériques.'
+      : 'The infrastructure reality: protocols (MCP, A2A, ACP), system design patterns, agent-ready data architecture, identity management, and the role of blockchain & digital product passports.',
+    fredericLensText: isFr
+      ? 'L\'impératif stratégique : ce que le commerce agentique signifie pour le positionnement des marques, les relations clients et les défis réels auxquels font face les entreprises qui expérimentent dès aujourd\'hui.'
+      : 'The strategic imperative: what agentic commerce means for brand positioning, customer relationships, and the real challenges faced by companies already experimenting today.',
+
+    // Discussion Themes
+    discussionThemes: isFr ? 'Thèmes de Discussion' : 'Discussion Themes',
+    whatWeUnpack: isFr ? 'Ce que nous allons explorer' : 'What we\'ll unpack',
+    sixQuestions: isFr
+      ? 'Six questions auxquelles les leaders technologiques du luxe doivent répondre maintenant.'
+      : 'Six questions technology leaders in luxury need to answer now.',
+    card01Title: isFr ? 'De l\'Omnicanal aux Architectures Pilotées par les Agents' : 'From Omnichannel to Agent-Driven Architectures',
+    card01Body: isFr
+      ? 'Comment réarchitecturer une pile commerce conçue pour des humains naviguant sur des sites — et non pour des agents parcourant des API à grande échelle ?'
+      : 'How do you re-architect a commerce stack built for humans browsing websites — not agents traversing APIs at scale?',
+    card02Title: isFr ? 'Confiance, Risques & Goulots d\'Étranglement' : 'Trust, Risks & Bottlenecks',
+    card02Body: isFr
+      ? 'Qui est responsable quand un agent effectue un mauvais achat ? Comment les marques construisent-elles des garde-fous sûrs pour les agents sans tuer l\'expérience ?'
+      : 'Who is responsible when an agent makes a wrong purchase? How do brands build agent-safe guardrails without killing the experience?',
+    card03Title: isFr ? 'Protocoles : MCP, A2A, ACP' : 'Protocols: MCP, A2A, ACP',
+    card03Body: isFr
+      ? 'Les normes techniques émergentes permettant l\'interopérabilité des agents. Ce qu\'elles sont, ce qui leur manque encore et à quoi ressemble leur adoption en pratique.'
+      : 'The emerging technical standards enabling agent interoperability. What they are, what they still lack, and what adoption looks like in practice.',
+    card04Title: isFr ? 'Blockchain & Passeports Produits Numériques' : 'Blockchain & Digital Product Passports',
+    card04Body: isFr
+      ? 'Des données produits vérifiées au niveau protocolaire — pas seulement du contenu marketing. Provenance et traçabilité on-chain comme fondation d\'un luxe prêt pour les agents.'
+      : 'Verified product data at the protocol level — not just marketing copy. On-chain provenance and traceability as the foundation for agent-ready luxury.',
+    card05Title: isFr ? 'Vos Données de Marque Sont-Elles Prêtes pour les Agents ?' : 'Is Your Brand Data Agent-Ready?',
+    card05Body: isFr
+      ? 'Les agents ont besoin de données structurées, fiables et en temps réel. La plupart des marques de luxe ne les ont pas. À quoi ressemble concrètement une infrastructure de données prête pour les agents ?'
+      : 'Agents need structured, trusted, real-time data. Most luxury brands don\'t have it. What does "agent-ready" data infrastructure actually look like?',
+    card06Title: isFr ? 'Le Paradoxe du Luxe' : 'The Luxury Paradox',
+    card06Body: isFr
+      ? 'Le luxe se vend par l\'émotion, le récit et la connexion humaine. Un agent IA peut-il jamais fermer cette boucle — ou la boutique reste-t-elle toujours la destination ?'
+      : 'Luxury sells on emotion, story, and human connection. Can an AI agent ever close that loop — or does the boutique always remain the destination?',
+
+    // Register CTA
+    spotsRemaining: (spotsLeft: number) => isFr ? `${spotsLeft} places sur ${MAX_SPOTS} restantes` : `${spotsLeft} of ${MAX_SPOTS} spots remaining`,
+    joinConversation: isFr ? 'Rejoignez la conversation' : 'Join the conversation',
+    ctaDatetime: isFr ? 'Mercredi 30 avril · 19h00 CET' : 'Wednesday, April 30 · 7:00 PM CET',
+    alwaysFree: isFr
+      ? 'Toujours gratuit. Sans engagement. L\'inscription ferme quand les places sont épuisées.'
+      : 'Always free. No catch. Registration closes when spots run out.',
+  }
 
   let registrationCount = 0
   let isAdmin = false
@@ -395,7 +519,7 @@ export default async function AgenticCommercePage({
             href={`/${locale}/events`}
             className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white transition-colors"
           >
-            <ArrowLeft size={14} /> All Events
+            <ArrowLeft size={14} /> {T.allEvents}
           </Link>
         </div>
       </div>
@@ -447,12 +571,12 @@ export default async function AgenticCommercePage({
                   className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border"
                   style={{ color: ORANGE, borderColor: `${ORANGE}45`, backgroundColor: `${ORANGE}12` }}
                 >
-                  April 30, 2026
+                  {T.dateLabel}
                 </span>
               </div>
 
               <p className="text-xs font-bold tracking-widest uppercase mb-3 ac-h2" style={{ color: ORANGE }}>
-                Romandy CTO — Evening Session
+                {T.eveningSession}
               </p>
 
               <h1
@@ -471,24 +595,24 @@ export default async function AgenticCommercePage({
                 className="font-black uppercase mb-8 ac-h3"
                 style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)', color: 'rgba(255,255,255,0.50)', lineHeight: 1.2 }}
               >
-                & the Luxury Industry
+                {T.luxurySubtitle}
               </h2>
 
               <div className="mb-10 ac-h3" style={{ maxWidth: '38rem' }}>
                 <p className="text-base leading-relaxed mb-3" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                  AI agents can now research products, negotiate prices, and complete purchases autonomously — without a consumer ever visiting your site. A $3–5 trillion shift is already underway.
+                  {T.heroPara1}
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)' }}>
-                  For luxury, the stakes are different. When an agent becomes the customer, what happens to the story, the emotion, and the human connection that make a brand irreplaceable?
+                  {T.heroPara2}
                 </p>
               </div>
 
               <div className="flex flex-col gap-3 mb-10 ac-h4">
                 {[
-                  { Icon: Calendar, text: 'Wednesday, April 30, 2026' },
-                  { Icon: Clock,    text: '7:00 PM CET — Doors open at 19:00' },
-                  { Icon: MapPin,   text: 'Antaes, GBC – Avenue des Morgines 12, Petit-Lancy' },
-                  { Icon: Users,    text: `${spotsLeft} spots remaining · Free admission` },
+                  { Icon: Calendar, text: T.heroDate },
+                  { Icon: Clock,    text: T.heroTime },
+                  { Icon: MapPin,   text: T.heroLocation },
+                  { Icon: Users,    text: T.heroSpots(spotsLeft) },
                 ].map(({ Icon, text }) => (
                   <div key={text} className="flex items-start gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>
                     <Icon size={14} style={{ color: ORANGE, flexShrink: 0, marginTop: 2 }} />
@@ -503,13 +627,13 @@ export default async function AgenticCommercePage({
                   className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-all hover:scale-105 hover:opacity-95"
                   style={{ backgroundColor: ORANGE }}
                 >
-                  Reserve Your Spot <ArrowRight size={16} />
+                  {T.reserveSpot} <ArrowRight size={16} />
                 </Link>
                 <div
                   className="inline-flex items-center gap-2 px-6 py-4 rounded-full text-sm font-semibold"
                   style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.45)' }}
                 >
-                  Free · Registration required
+                  {T.freeAdmission}
                 </div>
               </div>
             </div>
@@ -528,10 +652,10 @@ export default async function AgenticCommercePage({
       <section className="py-20 px-6 relative overflow-hidden" style={{ backgroundColor: DARKER }}>
         <div className="max-w-6xl mx-auto relative" style={{ zIndex: 1 }}>
           <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: ORANGE }}>
-            The Speakers
+            {T.theSpeakers}
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-14">
-            Two perspectives, one evening
+            {T.twoPerspectives}
           </h2>
 
           <div className="grid sm:grid-cols-2 gap-6">
@@ -560,23 +684,32 @@ export default async function AgenticCommercePage({
                       className="text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full"
                       style={{ backgroundColor: `${ORANGE}22`, color: ORANGE }}
                     >
-                      CTO &amp; Architecture Lens
+                      {T.pedroLens}
                     </span>
                   </div>
                   <p className="text-sm font-semibold mb-5" style={{ color: 'rgba(255,255,255,0.38)' }}>
-                    Technology Strategist · Former Innovation Lead, Richemont Group
+                    {T.pedroRole}
                   </p>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.60)' }}>
-                    For over twelve years at Richemont — home to Cartier, Vacheron Constantin, IWC, and other Maisons —
-                    Pedro led technology innovation initiatives focused on digital identity, blockchain, and product
-                    traceability, helping secure centuries-old legacies while preparing them for the digital paradigm.
+                    {T.pedroBio1}
                   </p>
                   <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.60)' }}>
-                    Named among the{' '}
-                    <strong className="text-white/90">Top Luxury Speakers of the World 2026</strong>
-                    {' '}by the World Luxury Chamber of Commerce alongside 59 global peers.
-                    His work on agentic commerce — including first-hand experiments using AI agents to navigate
-                    luxury retail — forms the backbone of this evening&apos;s discussion.
+                    {isFr ? (
+                      <>
+                        Nommé parmi les{' '}
+                        <strong className="text-white/90">Top Luxury Speakers of the World 2026</strong>
+                        {' '}par la Chambre de Commerce du Luxe Mondial aux côtés de 59 pairs internationaux.
+                        Ses travaux sur le commerce agentique — y compris des expériences directes utilisant des agents IA dans le commerce de luxe — constituent le fil directeur de cette soirée.
+                      </>
+                    ) : (
+                      <>
+                        Named among the{' '}
+                        <strong className="text-white/90">Top Luxury Speakers of the World 2026</strong>
+                        {' '}by the World Luxury Chamber of Commerce alongside 59 global peers.
+                        His work on agentic commerce — including first-hand experiments using AI agents to navigate
+                        luxury retail — forms the backbone of this evening&apos;s discussion.
+                      </>
+                    )}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {['Blockchain', 'Digital Product Passports', 'Luxury Tech', 'Agentic Commerce', 'Digital Identity', 'Richemont'].map((tag) => (
@@ -614,21 +747,17 @@ export default async function AgenticCommercePage({
                       className="text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full"
                       style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.50)' }}
                     >
-                      Strategy &amp; Technology Lens
+                      {T.fredericLens}
                     </span>
                   </div>
                   <p className="text-sm font-semibold mb-5" style={{ color: 'rgba(255,255,255,0.38)' }}>
-                    Technology Director &amp; Senior Advisor
+                    {T.fredericRole}
                   </p>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.60)' }}>
-                    A passionate digital executive who combines strategic vision with high-quality execution,
-                    Frédéric brings people and technology to serve end customers. He looks beyond the technical
-                    architecture to ask the harder question: is this the right move for the business and the customer?
+                    {T.fredericBio1}
                   </p>
                   <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.60)' }}>
-                    His perspective grounds the discussion in operational reality — the challenges of transition,
-                    the expectations of luxury consumers, and the leadership required to navigate a paradigm shift
-                    without losing what makes a brand irreplaceable.
+                    {T.fredericBio2}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {['Digital Strategy', 'Technology Leadership', 'Commerce Architecture', 'Customer Experience', 'Executive Advisory'].map((tag) => (
@@ -654,7 +783,7 @@ export default async function AgenticCommercePage({
         <div className="max-w-4xl mx-auto">
 
           <p className="text-xs font-bold tracking-widest uppercase mb-6" style={{ color: ORANGE }}>
-            The Inflection Point
+            {T.inflectionPoint}
           </p>
 
           <ScrollReveal delay={100}>
@@ -681,13 +810,10 @@ export default async function AgenticCommercePage({
           </div>
 
           <p className="text-lg leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.62)', maxWidth: '42rem' }}>
-            Pedro used three AI agents to buy a luxury coat. They excelled at discovery — then hit a wall. Incomplete 
-            product data. No direct commerce integrations. No trust. He ended up doing what he&apos;s always done: visiting
-            the boutique.
+            {T.inflectionPara1}
           </p>
           <p className="text-lg leading-relaxed mb-16" style={{ color: 'rgba(255,255,255,0.62)', maxWidth: '42rem' }}>
-            That gap between promise and reality is exactly where technology leaders in luxury must act. Agentic commerce
-            isn&apos;t coming — it&apos;s already here, fragmented, and waiting for the right architecture.
+            {T.inflectionPara2}
           </p>
 
           <div className="gradient-rule mb-16" />
@@ -697,18 +823,18 @@ export default async function AgenticCommercePage({
             {[
               {
                 value: '$3–5T',
-                label: 'Global agentic commerce opportunity by 2030 — $1T from US B2C retail alone',
-                source: 'Industry research, 2025',
+                label: T.stat1Label,
+                source: T.statSource1,
               },
               {
                 value: '50%',
-                label: 'of consumers now use AI when searching the internet — up from near zero in 2022',
-                source: 'Industry research, 2025',
+                label: T.stat2Label,
+                source: T.statSource2,
               },
               {
                 value: '3 models',
-                label: 'Agent-to-site · Agent-to-agent · Brokered agent · All emerging simultaneously',
-                source: 'How commerce flows today',
+                label: T.stat3Label,
+                source: T.statSource3,
               },
             ].map(({ value, label, source }, i) => (
               <ScrollReveal key={value} delay={i * 130}>
@@ -735,18 +861,18 @@ export default async function AgenticCommercePage({
         <div className="max-w-4xl mx-auto">
 
           <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: ORANGE }}>
-            The Evening
+            {T.theEvening}
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-14">
-            How the night unfolds
+            {T.howNightUnfolds}
           </h2>
 
           {/* Timeline */}
           <div className="flex flex-col mb-16">
             {([
-              { time: '19:00 – 19:20', label: 'Introduction to Agentic Commerce', sub: 'A short framing presentation to level-set the room on where we are today', highlight: false },
-              { time: '19:20', label: 'Panel Discussion & Open Q&A', sub: 'Architecture · Strategy · The luxury paradox. Open, conversational, practitioner-led — the room drives the conversation.', highlight: true },
-              { time: '20:30', label: 'Drinks & Networking', sub: 'Continue the conversation informally', highlight: false },
+              { time: '19:00 – 19:20', label: T.timeline1Label, sub: T.timeline1Sub, highlight: false },
+              { time: '19:20', label: T.timeline2Label, sub: T.timeline2Sub, highlight: true },
+              { time: '20:30', label: T.timeline3Label, sub: T.timeline3Sub, highlight: false },
             ] as const).map(({ time, label, sub, highlight }, i, arr) => (
               <ScrollReveal key={time} delay={i * 120}>
               <div className="flex gap-5 items-start">
@@ -794,7 +920,7 @@ export default async function AgenticCommercePage({
 
           {/* Two lenses */}
           <h3 className="text-xs font-bold tracking-widest uppercase mb-5" style={{ color: 'rgba(255,255,255,0.35)' }}>
-            Two perspectives, one panel
+            {T.twoPerspectivesPanel}
           </h3>
           <div className="grid sm:grid-cols-2 gap-5">
             <div
@@ -805,12 +931,11 @@ export default async function AgenticCommercePage({
                 className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-5"
                 style={{ backgroundColor: `${ORANGE}22`, color: ORANGE }}
               >
-                CTO &amp; Architecture Lens
+                {T.pedroLens}
               </span>
               <h3 className="text-lg font-black text-white mb-3">Pedro López-Belmonte</h3>
               <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.52)' }}>
-                The infrastructure reality: protocols (MCP, A2A, ACP), system design patterns, agent-ready data architecture, 
-                identity management, and the role of blockchain &amp; digital product passports.
+                {T.pedroLensText}
               </p>
             </div>
             <div
@@ -821,12 +946,11 @@ export default async function AgenticCommercePage({
                 className="inline-block text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-5"
                 style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.55)' }}
               >
-                Strategy &amp; Technology Lens
+                {T.fredericLens}
               </span>
               <h3 className="text-lg font-black text-white mb-3">Frédéric Desmaison</h3>
               <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.52)' }}>
-                The strategic imperative: what agentic commerce means for brand positioning, customer relationships, and 
-                the real challenges faced by companies already experimenting today.
+                {T.fredericLensText}
               </p>
             </div>
           </div>
@@ -844,13 +968,13 @@ export default async function AgenticCommercePage({
             {/* Left — sticky section label (desktop only) */}
             <div className="lg:sticky lg:top-24" style={{ alignSelf: 'start' }}>
               <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: ORANGE }}>
-                Discussion Themes
+                {T.discussionThemes}
               </p>
               <h2 className="text-3xl font-black text-white uppercase leading-tight">
-                What we&apos;ll unpack
+                {T.whatWeUnpack}
               </h2>
               <p className="text-sm mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)' }}>
-                Six questions technology leaders in luxury need to answer now.
+                {T.sixQuestions}
               </p>
             </div>
 
@@ -860,38 +984,38 @@ export default async function AgenticCommercePage({
                 {
                   Icon: Network,
                   num: '01',
-                  title: 'From Omnichannel to Agent-Driven Architectures',
-                  body: 'How do you re-architect a commerce stack built for humans browsing websites — not agents traversing APIs at scale?',
+                  title: T.card01Title,
+                  body: T.card01Body,
                 },
                 {
                   Icon: Shield,
                   num: '02',
-                  title: 'Trust, Risks & Bottlenecks',
-                  body: 'Who is responsible when an agent makes a wrong purchase? How do brands build agent-safe guardrails without killing the experience?',
+                  title: T.card02Title,
+                  body: T.card02Body,
                 },
                 {
                   Icon: Cpu,
                   num: '03',
-                  title: 'Protocols: MCP, A2A, ACP',
-                  body: 'The emerging technical standards enabling agent interoperability. What they are, what they still lack, and what adoption looks like in practice.',
+                  title: T.card03Title,
+                  body: T.card03Body,
                 },
                 {
                   Icon: Database,
                   num: '04',
-                  title: 'Blockchain & Digital Product Passports',
-                  body: 'Verified product data at the protocol level — not just marketing copy. On-chain provenance and traceability as the foundation for agent-ready luxury.',
+                  title: T.card04Title,
+                  body: T.card04Body,
                 },
                 {
                   Icon: Lock,
                   num: '05',
-                  title: 'Is Your Brand Data Agent-Ready?',
-                  body: 'Agents need structured, trusted, real-time data. Most luxury brands don\'t have it. What does "agent-ready" data infrastructure actually look like?',
+                  title: T.card05Title,
+                  body: T.card05Body,
                 },
                 {
                   Icon: Sparkles,
                   num: '06',
-                  title: 'The Luxury Paradox',
-                  body: 'Luxury sells on emotion, story, and human connection. Can an AI agent ever close that loop — or does the boutique always remain the destination?',
+                  title: T.card06Title,
+                  body: T.card06Body,
                 },
               ] as const).map(({ Icon, num, title, body }, i) => (
                 <ScrollReveal key={num} delay={i * 80}>
@@ -949,18 +1073,18 @@ export default async function AgenticCommercePage({
             className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-8 border"
             style={{ color: ORANGE, borderColor: `${ORANGE}45`, backgroundColor: `${ORANGE}12` }}
           >
-            {spotsLeft} of {MAX_SPOTS} spots remaining
+            {T.spotsRemaining(spotsLeft)}
           </span>
 
           <h2
             className="font-black text-white uppercase leading-tight mb-6"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
           >
-            Join the<br />conversation
+            {T.joinConversation}
           </h2>
 
           <p className="text-lg mb-2" style={{ color: 'rgba(255,255,255,0.48)' }}>
-            Wednesday, April 30 · 7:00 PM CET
+            {T.ctaDatetime}
           </p>
           <p className="text-sm mb-12" style={{ color: 'rgba(255,255,255,0.32)' }}>
             Antaes, GBC – Avenue des Morgines 12, Petit-Lancy
@@ -971,11 +1095,11 @@ export default async function AgenticCommercePage({
             className="btn-glow inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-white text-lg transition-all hover:scale-105 hover:opacity-95"
             style={{ backgroundColor: ORANGE }}
           >
-            Reserve Your Spot <ArrowRight size={20} />
+            {T.reserveSpot} <ArrowRight size={20} />
           </Link>
 
           <p className="text-sm mt-6" style={{ color: 'rgba(255,255,255,0.22)' }}>
-            Always free. No catch. Registration closes when spots run out.
+            {T.alwaysFree}
           </p>
         </div>
       </section>
