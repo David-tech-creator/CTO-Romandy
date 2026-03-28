@@ -16,15 +16,22 @@ export type Event = {
 export const EVENTS: Event[] = [
   {
     slug: 'innovation-luxury-april-2026',
-    title: 'Innovation in the Luxury Industry',
-    titleFr: "L'Innovation dans l'Industrie du Luxe",
+    title: 'Agentic Commerce & the Luxury Industry',
+    titleFr: 'Le Commerce Agentique & l\'Industrie du Luxe',
     date: 'April 30, 2026',
-    time: '6:30 PM CET',
-    location: 'Geneva, Switzerland (venue TBA)',
+    time: '7:00 PM CET',
+    location: 'Antaes, GBC – Avenue des Morgines 12, Petit-Lancy',
     description:
-      'Topic and speakers to be announced soon. An evening exploring how technology drives innovation in the luxury sector.',
+      'AI agents are beginning to reshape how consumers discover, evaluate, and buy luxury products. This evening brings together two perspectives — architecture and strategy — to explore what agentic commerce really means for technology leaders in the luxury sector: from omnichannel to agent-driven architectures, trust mechanisms, protocols, and the role of blockchain and digital product passports.',
     descriptionFr:
-      'Sujet et intervenants à annoncer prochainement. Une soirée autour de la façon dont la technologie impulse l\'innovation dans le secteur du luxe.',
+      'Les agents IA commencent à transformer la façon dont les consommateurs découvrent, évaluent et achètent des produits de luxe. Cette soirée réunit deux perspectives — architecture et stratégie — pour explorer ce que le commerce agentique signifie vraiment pour les leaders technologiques du secteur du luxe : des architectures omnicanales aux architectures pilotées par des agents, les mécanismes de confiance, les protocoles et le rôle de la blockchain et des passeports numériques de produits.',
+    agenda: [
+      { time: '19:00', item: 'Doors open & networking' },
+      { time: '19:30', item: 'Introduction to Agentic Commerce — short presentation' },
+      { time: '19:50', item: 'Panel discussion: architecture, strategy & the luxury paradox' },
+      { time: '20:45', item: 'Open Q&A' },
+      { time: '21:00', item: 'Drinks & networking' },
+    ],
     maxSpots: 50,
     isUpcoming: true,
   },
