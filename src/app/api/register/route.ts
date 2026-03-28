@@ -1,10 +1,15 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
+import { Resend } from 'resend'
+import { eventRegistrationEmail } from '@/lib/emails/event-registration'
+import { UPCOMING_EVENT } from '@/lib/events'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!
 )
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: NextRequest) {
   const body = await request.json()
@@ -29,6 +34,27 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'already_registered' }, { status: 409 })
     }
     return NextResponse.json({ error: error.message }, { status: 500 })
+  }
+
+  // Send registration confirmation email (non-blocking)
+  try {
+    const { subject, html } = eventRegistrationEmail({
+      firstName,
+      eventName: UPCOMING_EVENT.title,
+      eventDate: UPCOMING_EVENT.date,
+      eventTime: UPCOMING_EVENT.time,
+      eventLocation: UPCOMING_EVENT.location,
+      eventSlug: UPCOMING_EVENT.slug,
+      locale: locale || 'en',
+    })
+    await resend.emails.send({
+      from: process.env.RESEND_FROM ?? 'Romandy CTO <hello@ctoromandy.ch>',
+      to: email,
+      subject,
+      html,
+    })
+  } catch (emailError) {
+    console.error('Registration email failed:', emailError)
   }
 
   return NextResponse.json({ success: true })
