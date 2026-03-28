@@ -5,8 +5,30 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Romandy CTO Meetup Group',
+  title: 'Romandy CTO',
   description: 'The community for CTOs and technology leaders in Romandy, Switzerland.',
+  metadataBase: new URL('https://www.ctoromandy.ch'),
+  openGraph: {
+    title: 'Romandy CTO',
+    description: 'The community for CTOs and technology leaders in Romandy, Switzerland.',
+    url: 'https://www.ctoromandy.ch',
+    siteName: 'Romandy CTO',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1536,
+        height: 1024,
+        alt: 'Romandy CTO',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Romandy CTO',
+    description: 'The community for CTOs and technology leaders in Romandy, Switzerland.',
+    images: ['/logo.png'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
