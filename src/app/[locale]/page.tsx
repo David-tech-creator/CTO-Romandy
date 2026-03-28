@@ -313,7 +313,7 @@ export default function LandingPage({ params: { locale } }: { params: { locale: 
 
       {/* ── Editorial separator ───────────────────────────────────────── */}
       <div style={{ height: 320, position: 'relative', overflow: 'hidden' }}>
-        <img src="/ctomain11.webp" alt="" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'brightness(0.5) saturate(0.6)' }} />
+        <img src="/agentic10.webp" alt="" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'brightness(0.6) saturate(0.7)' }} />
         <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to bottom, ${DARKER} 0%, transparent 20%, transparent 80%, ${DARK} 100%)` }} />
       </div>
 
