@@ -59,14 +59,14 @@ export default function BB8Mascot() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
-        {/* Ambient base */}
-        <ambientLight intensity={0.6} />
+        {/* Ambient base — bright so dark materials stay visible */}
+        <ambientLight intensity={2.5} />
         {/* Key light — warm white, top-left */}
-        <directionalLight position={[-4, 6, 3]} intensity={2.0} color="#fff5e8" />
-        {/* Fill — neutral, right */}
-        <directionalLight position={[5, 2, -2]} intensity={0.7} color="#ffffff" />
-        {/* Amber rim from below */}
-        <pointLight position={[0, -4, 2]} intensity={0.8} color="#c8834a" />
+        <directionalLight position={[-4, 6, 3]} intensity={5.0} color="#fff5e8" />
+        {/* Fill — front-right */}
+        <directionalLight position={[4, 2, 4]} intensity={3.0} color="#ffffff" />
+        {/* Amber accent from below */}
+        <pointLight position={[0, -3, 3]} intensity={2.0} color="#c8834a" />
 
         <RobotModel />
 
