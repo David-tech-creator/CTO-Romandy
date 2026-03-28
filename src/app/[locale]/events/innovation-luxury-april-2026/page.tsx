@@ -524,11 +524,28 @@ export default async function AgenticCommercePage({
       {/* SPEAKERS                                                      */}
       {/* ══════════════════════════════════════════════════════════════ */}
       <section className="py-20 px-6 relative overflow-hidden" style={{ backgroundColor: DARKER }}>
+        {/* Friendly robot — blurred background */}
+        <img
+          src="/friendlyrobot.png"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: 'absolute', inset: 0, width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center',
+            opacity: 0.18, filter: 'blur(18px)', transform: 'scale(1.05)',
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Dark overlay so cards stay legible */}
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+          background: 'rgba(37,37,37,0.82)',
+        }} />
         <div className="sonar-ring" style={{ opacity: 0.30 }} />
         <div className="sonar-ring sonar-ring-2" style={{ opacity: 0.30 }} />
         <div className="sonar-ring sonar-ring-3" style={{ opacity: 0.30 }} />
 
-        <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-4xl mx-auto relative" style={{ zIndex: 1 }}>
           <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: ORANGE }}>
             The Speakers
           </p>
