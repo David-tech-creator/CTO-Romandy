@@ -81,6 +81,22 @@ export default function RegisterPage({ params: { locale } }: { params: { locale:
               </span>
               <span className="text-white/40 ml-2">{t('nextEvent.spotsNote')}</span>
             </div>
+
+            {/* Robot mascot — visual anchor beneath the event details */}
+            <img
+              src="/friendlyrobot.png"
+              alt=""
+              aria-hidden="true"
+              className="hidden lg:block"
+              style={{
+                width: '85%',
+                maxWidth: 340,
+                height: 'auto',
+                marginTop: '2.5rem',
+                filter: 'drop-shadow(0 0 48px rgba(200,131,74,0.30))',
+                opacity: 0.9,
+              }}
+            />
           </div>
 
           {/* Right: form */}

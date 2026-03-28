@@ -527,37 +527,14 @@ export default async function AgenticCommercePage({
       {/* ══════════════════════════════════════════════════════════════ */}
       <section className="py-20 px-6 relative overflow-hidden" style={{ backgroundColor: DARKER }}>
         <div className="max-w-6xl mx-auto relative" style={{ zIndex: 1 }}>
-          {/* 2-column: robot left, content right */}
-          <div className="grid lg:grid-cols-[1fr_1.35fr] gap-12 items-start">
+          <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: ORANGE }}>
+            The Speakers
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-14">
+            Two perspectives, one evening
+          </h2>
 
-            {/* Left — friendly robot image (sticky while cards scroll) */}
-            <div
-              className="hidden lg:flex items-center justify-center"
-              style={{ position: 'sticky', top: '6rem', alignSelf: 'start' }}
-            >
-              <img
-                src="/friendlyrobot.png"
-                alt="Friendly robot mascot"
-                style={{
-                  width: '100%',
-                  maxWidth: 480,
-                  height: 'auto',
-                  display: 'block',
-                  filter: 'drop-shadow(0 0 48px rgba(200,131,74,0.35))',
-                }}
-              />
-            </div>
-
-            {/* Right — header + speaker cards */}
-            <div>
-              <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: ORANGE }}>
-                The Speakers
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-black text-white uppercase mb-14">
-                Two perspectives, one evening
-              </h2>
-
-              <div className="flex flex-col gap-6">
+          <div className="grid sm:grid-cols-2 gap-6">
 
             {/* ── Pedro ─────────────────────────────────────────────── */}
             <div
@@ -665,9 +642,7 @@ export default async function AgenticCommercePage({
               </div>
             </div>
 
-              </div>
-            </div>{/* end right column */}
-          </div>{/* end grid */}
+          </div>
         </div>
       </section>
 
