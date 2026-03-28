@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useGLTF, OrbitControls, Stage } from '@react-three/drei'
+import { useGLTF, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 
 function BB8Model() {
