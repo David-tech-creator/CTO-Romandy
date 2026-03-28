@@ -1,0 +1,39 @@
+name: Generate Blog Post
+
+on:
+  schedule:
+    # Mon, Wed, Fri at 7:00 AM UTC (9:00 AM CET)
+    - cron: '0 7 * * 1,3,5'
+  workflow_dispatch: # allow manual trigger from GitHub UI
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate blog post
+        run: node scripts/generate-post.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit new post
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'content: auto-generate blog post'
+          file_pattern: 'content/blog/*.md'
+          commit_user_name: 'Romandy CTO Bot'
+          commit_user_email: 'bot@ctoromandy.ch'

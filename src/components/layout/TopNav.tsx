@@ -38,6 +38,9 @@ export function TopNav() {
           <a href={`/${locale}#events`} className="text-sm text-white/60 hover:text-white transition-colors">
             {t('events')}
           </a>
+          <Link href={`/${locale}/blog`} className="text-sm text-white/60 hover:text-white transition-colors">
+            {t('blog')}
+          </Link>
           <a
             href={MEETUP_URL}
             target="_blank"
@@ -105,6 +108,13 @@ export function TopNav() {
           >
             {t('events')}
           </a>
+          <Link
+            href={`/${locale}/blog`}
+            onClick={() => setOpen(false)}
+            className="py-2.5 text-sm text-white/70 hover:text-white transition-colors"
+          >
+            {t('blog')}
+          </Link>
           <a
             href={MEETUP_URL}
             target="_blank"
