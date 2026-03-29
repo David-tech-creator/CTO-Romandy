@@ -45,6 +45,23 @@ export default function NewsletterPage({ params: { locale } }: { params: { local
 
       {/* Hero */}
       <section style={{ backgroundColor: DARKER, position: 'relative', overflow: 'hidden', paddingBottom: '5rem' }}>
+        {/* Hero background image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/building.webp"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: 'absolute', inset: 0, width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center',
+            opacity: 0.18, pointerEvents: 'none',
+          }}
+        />
+        {/* Gradient overlay */}
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none',
+          background: 'linear-gradient(to bottom, rgba(37,37,37,0.85) 0%, rgba(37,37,37,0.55) 50%, rgba(37,37,37,0.90) 100%)',
+        }} />
         {/* Dot grid */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
