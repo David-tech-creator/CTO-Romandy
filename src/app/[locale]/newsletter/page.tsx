@@ -17,21 +17,25 @@ const SAMPLE_ISSUE = {
       tag: 'ANTHROPIC',
       title: 'Claude can now control your computer',
       body: 'Anthropic shipped Computer Use GA — Claude can now browse, click, and operate any desktop app autonomously. CTOs are already testing it for internal automation workflows.',
+      url: 'https://www.anthropic.com/news/computer-use',
     },
     {
       tag: 'OPENAI',
       title: 'GPT-5 enters limited preview',
       body: 'OpenAI began a staged rollout of GPT-5 to enterprise customers. Early benchmarks show a 40% improvement on complex reasoning tasks vs. GPT-4o.',
+      url: 'https://openai.com/blog',
     },
     {
       tag: 'REGULATION',
       title: 'EU AI Act enforcement begins Q3 2026',
       body: 'The first wave of compliance deadlines under the EU AI Act is now confirmed. High-risk AI systems in HR, credit scoring, and critical infrastructure must be registered by September.',
+      url: 'https://artificialintelligenceact.eu',
     },
   ],
   tool: {
     name: 'Cursor',
     description: 'The AI-first code editor. Understands your entire codebase, writes multi-file changes, and explains unfamiliar code on demand. Most engineering teams are already using it.',
+    url: 'https://cursor.com',
   },
   insight: 'The question isn\'t whether to adopt AI coding tools — it\'s how fast your team can unlearn the habits that slow them down. The bottleneck is no longer writing code. It\'s reviewing it.',
 }
@@ -209,7 +213,16 @@ export default function NewsletterPage({ params: { locale } }: { params: { local
                     </span>
                     <div>
                       <p className="text-sm font-bold text-white mb-1">{s.title}</p>
-                      <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.body}</p>
+                      <p className="text-xs leading-relaxed mb-2" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.body}</p>
+                      <a
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold transition-opacity hover:opacity-80"
+                        style={{ color: ORANGE }}
+                      >
+                        {isFr ? 'Lire l\'article →' : 'Read the story →'}
+                      </a>
                     </div>
                   </div>
                 ))}
@@ -221,7 +234,16 @@ export default function NewsletterPage({ params: { locale } }: { params: { local
                   {isFr ? 'Outil de la semaine' : 'Tool of the week'}
                 </p>
                 <p className="text-sm font-bold text-white mb-1">{SAMPLE_ISSUE.tool.name}</p>
-                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>{SAMPLE_ISSUE.tool.description}</p>
+                <p className="text-xs leading-relaxed mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>{SAMPLE_ISSUE.tool.description}</p>
+                <a
+                  href={SAMPLE_ISSUE.tool.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs font-semibold transition-opacity hover:opacity-80"
+                  style={{ color: ORANGE }}
+                >
+                  {isFr ? 'Explorer →' : 'Explore →'}
+                </a>
               </div>
 
               {/* CTO insight */}

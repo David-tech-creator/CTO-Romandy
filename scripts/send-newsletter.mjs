@@ -234,7 +234,7 @@ function buildEmail({ content, imageUrl, subscribers, locale, token }) {
                 </p>
                 <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#ffffff;">${s.headline}</p>
                 <p style="margin:0;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.65;">${s.body}</p>
-                ${s.url ? `<p style="margin:8px 0 0;"><a href="${s.url}" style="font-size:11px;color:#C8834A;text-decoration:none;">${isFr ? 'Lire →' : 'Read →'}</a></p>` : ''}
+                ${s.url ? `<p style="margin:10px 0 0;"><a href="${s.url}" style="display:inline-block;font-size:11px;font-weight:700;color:#C8834A;text-decoration:none;border:1px solid rgba(200,131,74,0.35);padding:4px 12px;border-radius:20px;letter-spacing:0.05em;">${isFr ? 'Lire l\'article →' : 'Read the story →'}</a></p>` : ''}
               </td></tr>
             </table>`).join('')}
 
@@ -263,7 +263,7 @@ function buildEmail({ content, imageUrl, subscribers, locale, token }) {
                   <span style="font-size:12px;font-weight:400;color:rgba(255,255,255,0.4);margin-left:6px;">${content.toolOfTheWeek.tagline}</span>
                 </p>
                 <p style="margin:8px 0 0;font-size:12px;color:rgba(255,255,255,0.5);line-height:1.65;">${content.toolOfTheWeek.body}</p>
-                ${content.toolOfTheWeek.url ? `<p style="margin:8px 0 0;"><a href="${content.toolOfTheWeek.url}" style="font-size:11px;color:#C8834A;text-decoration:none;">${isFr ? 'Explorer →' : 'Explore →'}</a></p>` : ''}
+                ${content.toolOfTheWeek.url ? `<p style="margin:10px 0 0;"><a href="${content.toolOfTheWeek.url}" style="display:inline-block;font-size:11px;font-weight:700;color:#C8834A;text-decoration:none;border:1px solid rgba(200,131,74,0.35);padding:4px 12px;border-radius:20px;letter-spacing:0.05em;">${isFr ? 'Explorer →' : 'Explore →'}</a></p>` : ''}
               </td></tr>
             </table>
 
