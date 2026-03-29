@@ -530,117 +530,111 @@ export default async function AgenticCommercePage({
       <section
         style={{
           backgroundColor: DARKER,
-          paddingTop: '3rem',
-          paddingBottom: '5rem',
+          minHeight: '85vh',
           position: 'relative',
           overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
-        {/* Hero background image */}
-        <img
-          src="/agentic.png"
-          alt=""
-          aria-hidden="true"
+        {/* Mascot — absolute right, large, partially cropped on right edge */}
+        <div
+          className="hidden lg:block"
           style={{
-            position: 'absolute', inset: 0, width: '100%', height: '100%',
-            objectFit: 'cover', objectPosition: 'center',
-            opacity: 0.18, pointerEvents: 'none',
+            position: 'absolute', right: '-4%', top: '50%',
+            transform: 'translateY(-50%)',
+            width: '52%', maxWidth: 700,
+            pointerEvents: 'none', zIndex: 1,
           }}
-        />
-        {/* Gradient scrim — ensures left text stays legible */}
+        >
+          <AgentMascotSVG />
+        </div>
+
+        {/* Gradient scrim — left fade so text stays legible over mascot */}
         <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          background: 'linear-gradient(to right, rgba(37,37,37,0.97) 45%, rgba(37,37,37,0.75) 70%, rgba(37,37,37,0.4) 100%)',
+          position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 2,
+          background: 'linear-gradient(to right, #252525 42%, rgba(37,37,37,0.88) 62%, rgba(37,37,37,0.3) 82%, transparent)',
         }} />
         {/* Dot grid overlay */}
         <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
+          position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 2,
           backgroundImage: 'radial-gradient(circle, rgba(200,131,74,0.07) 1px, transparent 1px)',
           backgroundSize: '30px 30px',
         }} />
 
-        <div className="max-w-6xl mx-auto px-6" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            {/* Left — text */}
-            <div>
-              <div className="flex items-center gap-4 mb-8 ac-h1">
-                <BrandLockup locale={locale} size="md" linked={false} />
-                <div style={{ width: 1, height: 32, backgroundColor: 'rgba(255,255,255,0.10)' }} />
-                <span
-                  className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border"
-                  style={{ color: ORANGE, borderColor: `${ORANGE}45`, backgroundColor: `${ORANGE}12` }}
-                >
-                  {T.dateLabel}
-                </span>
-              </div>
-
-              <p className="text-xs font-bold tracking-widest uppercase mb-3 ac-h2" style={{ color: ORANGE }}>
-                {T.eveningSession}
-              </p>
-
-              <h1
-                className="font-black text-white uppercase leading-none mb-2 ac-h3"
-                style={{ fontSize: 'clamp(2.8rem, 6.5vw, 5rem)', lineHeight: 1.02 }}
+        <div className="max-w-6xl mx-auto px-6 py-20 w-full" style={{ position: 'relative', zIndex: 3 }}>
+          <div style={{ maxWidth: '52rem' }}>
+            <div className="flex items-center gap-4 mb-8 ac-h1">
+              <BrandLockup locale={locale} size="md" linked={false} />
+              <div style={{ width: 1, height: 32, backgroundColor: 'rgba(255,255,255,0.10)' }} />
+              <span
+                className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full border"
+                style={{ color: ORANGE, borderColor: `${ORANGE}45`, backgroundColor: `${ORANGE}12` }}
               >
-                Agentic
-              </h1>
-              <h1
-                className="text-gradient-orange font-black uppercase leading-none mb-4 ac-h3"
-                style={{ fontSize: 'clamp(2.8rem, 6.5vw, 5rem)', lineHeight: 1.02 }}
-              >
-                Commerce
-              </h1>
-              <h2
-                className="font-black uppercase mb-8 ac-h3"
-                style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)', color: 'rgba(255,255,255,0.50)', lineHeight: 1.2 }}
-              >
-                {T.luxurySubtitle}
-              </h2>
-
-              <div className="mb-10 ac-h3" style={{ maxWidth: '38rem' }}>
-                <p className="text-base leading-relaxed mb-3" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                  {T.heroPara1}
-                </p>
-                <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)' }}>
-                  {T.heroPara2}
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-3 mb-10 ac-h4">
-                {[
-                  { Icon: Calendar, text: T.heroDate },
-                  { Icon: Clock,    text: T.heroTime },
-                  { Icon: MapPin,   text: T.heroLocation },
-                  { Icon: Users,    text: T.heroSpots(spotsLeft) },
-                ].map(({ Icon, text }) => (
-                  <div key={text} className="flex items-start gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                    <Icon size={14} style={{ color: ORANGE, flexShrink: 0, marginTop: 2 }} />
-                    <span>{text}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-3 ac-h5">
-                <Link
-                  href={`/${locale}/register`}
-                  className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-all hover:scale-105 hover:opacity-95"
-                  style={{ backgroundColor: ORANGE }}
-                >
-                  {T.reserveSpot} <ArrowRight size={16} />
-                </Link>
-                <div
-                  className="inline-flex items-center gap-2 px-6 py-4 rounded-full text-sm font-semibold"
-                  style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.45)' }}
-                >
-                  {T.freeAdmission}
-                </div>
-              </div>
+                {T.dateLabel}
+              </span>
             </div>
 
-            {/* Right — Agent Network with robot at center */}
-            <div className="hidden lg:flex items-center justify-center" style={{ position: 'relative', zIndex: 1 }}>
-              <AgentNetworkSVG />
+            <p className="text-xs font-bold tracking-widest uppercase mb-3 ac-h2" style={{ color: ORANGE }}>
+              {T.eveningSession}
+            </p>
+
+            <h1
+              className="font-black text-white uppercase leading-none mb-2 ac-h3"
+              style={{ fontSize: 'clamp(2.8rem, 6.5vw, 5rem)', lineHeight: 1.02 }}
+            >
+              Agentic
+            </h1>
+            <h1
+              className="text-gradient-orange font-black uppercase leading-none mb-4 ac-h3"
+              style={{ fontSize: 'clamp(2.8rem, 6.5vw, 5rem)', lineHeight: 1.02 }}
+            >
+              Commerce
+            </h1>
+            <h2
+              className="font-black uppercase mb-8 ac-h3"
+              style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)', color: 'rgba(255,255,255,0.50)', lineHeight: 1.2 }}
+            >
+              {T.luxurySubtitle}
+            </h2>
+
+            <div className="mb-10 ac-h3" style={{ maxWidth: '38rem' }}>
+              <p className="text-base leading-relaxed mb-3" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                {T.heroPara1}
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)' }}>
+                {T.heroPara2}
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 mb-10 ac-h4">
+              {[
+                { Icon: Calendar, text: T.heroDate },
+                { Icon: Clock,    text: T.heroTime },
+                { Icon: MapPin,   text: T.heroLocation },
+                { Icon: Users,    text: T.heroSpots(spotsLeft) },
+              ].map(({ Icon, text }) => (
+                <div key={text} className="flex items-start gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                  <Icon size={14} style={{ color: ORANGE, flexShrink: 0, marginTop: 2 }} />
+                  <span>{text}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-3 ac-h5">
+              <Link
+                href={`/${locale}/register`}
+                className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-all hover:scale-105 hover:opacity-95"
+                style={{ backgroundColor: ORANGE }}
+              >
+                {T.reserveSpot} <ArrowRight size={16} />
+              </Link>
+              <div
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-full text-sm font-semibold"
+                style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.45)' }}
+              >
+                {T.freeAdmission}
+              </div>
             </div>
           </div>
         </div>

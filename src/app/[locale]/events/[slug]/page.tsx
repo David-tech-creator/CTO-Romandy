@@ -121,6 +121,16 @@ export default async function EventPage({
               Register Now <ArrowRight size={16} />
             </Link>
           )}
+
+          {event.flyer && (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={event.flyer}
+              alt={`${title} flyer`}
+              className="mt-8 w-full rounded-2xl"
+              style={{ maxHeight: 560, objectFit: 'cover', objectPosition: 'top' }}
+            />
+          )}
         </div>
       </div>
 
