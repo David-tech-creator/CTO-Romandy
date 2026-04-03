@@ -105,7 +105,7 @@ export default function NewsletterPage({ params: { locale } }: { params: { local
             {isFr ? 'Les CTOs.' : 'CTOs.'}
           </h1>
 
-          <p className="text-sm sm:text-base mb-8" style={{ color: 'rgba(255,255,255,0.55)', maxWidth: '36rem', lineHeight: 1.75 }}>
+          <p className="text-sm sm:text-base mb-8" style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.75 }}>
             {isFr
               ? 'Les actualités IA les plus importantes pour les leaders technologiques. Les outils à connaître. En 3 minutes, chaque lundi.'
               : 'The most important AI news for technology leaders. The tools to know. In 3 minutes, every Monday.'}
