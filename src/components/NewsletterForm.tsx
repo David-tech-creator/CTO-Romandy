@@ -55,12 +55,12 @@ export function NewsletterForm({ locale }: { locale: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-      <div className="flex gap-3">
+      <div className="flex flex-col sm:flex-row gap-3">
         <input
           name="firstName"
           type="text"
           placeholder={isFr ? 'Prénom' : 'First name'}
-          className="flex-1 px-4 py-3 rounded-xl text-sm text-white placeholder-white/30 outline-none focus:border-white/30 transition-colors"
+          className="w-full sm:flex-1 px-4 py-3 rounded-xl text-sm text-white placeholder-white/30 outline-none focus:border-white/30 transition-colors"
           style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}
         />
         <input
@@ -68,7 +68,7 @@ export function NewsletterForm({ locale }: { locale: string }) {
           type="email"
           required
           placeholder="Email"
-          className="flex-1 px-4 py-3 rounded-xl text-sm text-white placeholder-white/30 outline-none focus:border-white/30 transition-colors"
+          className="w-full sm:flex-1 px-4 py-3 rounded-xl text-sm text-white placeholder-white/30 outline-none focus:border-white/30 transition-colors"
           style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}
         />
       </div>
