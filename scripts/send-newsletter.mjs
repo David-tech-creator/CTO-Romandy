@@ -19,7 +19,7 @@ import Anthropic from '@anthropic-ai/sdk'
 
 const SITE = 'https://www.ctoromandy.ch'
 const ORANGE = '#C8834A'
-const FROM = process.env.RESEND_FROM ?? 'Romandy CTO <hello@ctoromandy.ch>'
+const FROM = process.env.RESEND_FROM || 'Romandy CTO <hello@ctoromandy.ch>'
 
 const resend   = new Resend(process.env.RESEND_API_KEY)
 const supabase = createClient(
